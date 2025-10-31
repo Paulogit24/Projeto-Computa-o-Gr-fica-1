@@ -1,0 +1,53 @@
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');    
+
+// Button properties
+const button = {
+    x: 50,
+    y: 50,
+    width: 100,
+    height: 40,
+    text: 'Click Me'
+};
+
+// Draw the button
+function drawButton() {
+    // Button background
+    ctx.fillStyle = '#4CAF50';
+    ctx.fillRect(button.x, button.y, button.width, button.height);
+    
+    // Button text
+    ctx.fillStyle = 'white';
+    ctx.font = '16px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(button.text, button.x + button.width/2, button.y + button.height/2);
+}
+
+// Handle click events
+canvas.addEventListener('click', function(event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    
+    // Check if click is inside button
+    if (x >= button.x && x <= button.x + button.width &&
+        y >= button.y && y <= button.y + button.height) {
+        console.log('Button clicked!');
+        // Add your button action here
+    }
+});
+
+// Draw initial scene
+function draw() {
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // ...existing code...
+    
+    // Draw button
+    drawButton();
+}
+
+// Initial draw
+draw();
