@@ -105,6 +105,7 @@ function animate(timestamp) {
 
   requestAnimationFrame(animate);
 }
+requestAnimationFrame(animate);
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
 
