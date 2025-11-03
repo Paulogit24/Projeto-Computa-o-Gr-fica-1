@@ -115,4 +115,3 @@ requestAnimationFrame(animate);
  createButton(startButton);
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
-
