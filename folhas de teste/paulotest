@@ -1,0 +1,100 @@
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');    
+
+// Button properties
+const button = {
+    x: 50,
+    y: 50,
+    width: 100,
+    height: 40,
+    text: 'Click Me'
+};
+
+// Draw the button
+function drawButton() {
+    // Button background
+    ctx.fillStyle = '#4CAF50';
+    ctx.fillRect(button.x, button.y, button.width, button.height);
+    
+    // Button text
+    ctx.fillStyle = 'white';
+    ctx.font = '16px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(button.text, button.x + button.width/2, button.y + button.height/2);
+}
+
+// Handle click events
+canvas.addEventListener('click', function(event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    
+    // Check if click is inside button
+    if (x >= button.x && x <= button.x + button.width &&
+        y >= button.y && y <= button.y + button.height) {
+        console.log('Button clicked!');
+        // Add your button action here
+    }
+});
+
+// Draw initial scene
+function draw() {
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // ...existing code...
+    
+    // Draw button
+    drawButton();
+}
+
+// Initial draw
+draw();
+
+
+
+
+// teste do labirinto
+const canvas1 = document.querySelector('canvas');
+const ctx1 = canvas.getContext('2d');
+
+// Set canvas size
+canvas.width = 600;
+canvas.height = 600;
+
+// Define the maze grid (0 = wall, 1 = path)
+const maze = [
+    [1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+    [1, 1, 1, 0, 1, 1, 1, 1, 0, 1],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 1],
+    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1],
+    [1, 0, 1, 1, 1, 1, 0, 1, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
+];
+
+// Cell size
+const cellSize = canvas.width / maze.length;
+
+// Draw the maze
+function drawMaze() {
+    for(let row = 0; row < maze.length; row++) {
+        for(let col = 0; col < maze[row].length; col++) {
+            if(maze[row][col] === 0) {
+                ctx.fillStyle = 'black';
+            } else {
+                ctx.fillStyle = 'white';
+            }
+            ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+            ctx.strokeStyle = '#ccc';
+            ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
+    }
+}
+
+// Initial draw
+drawMaze();
