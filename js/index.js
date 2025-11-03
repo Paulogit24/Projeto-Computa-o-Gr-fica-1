@@ -39,6 +39,19 @@ function createButton(button) {
   ctx.stroke();
 }
 
+canvas.addEventListener("click", function (event) {
+  const mouseX = event.clientX - canvas.offsetLeft;
+  const mouseY = event.clientY - canvas.offsetTop;
+  if (
+    mouseX >= startButton.x &&
+    mouseX <= startButton.x + startButton.width &&
+    mouseY >= startButton.y &&
+    mouseY <= startButton.y + startButton.height
+  ) {
+    window.location.href = "teste de labirinto.htm"; // redireciona para a página do jogo
+  }
+});
+
 const text = "Labirinto de Lixo";
 const targetX = 340;
 const startX = -400; // start off-canvas
@@ -104,14 +117,14 @@ function animate(timestamp) {
   ctx.fillText(text, x, targetY);
 
   // Add this to draw the controls text
-    ctx.fillStyle = "#000000"; // Black color for controls text
-    ctx.font = "20px Arial";   // Smaller font for controls
-    ctx.fillText(text2, targetX2, 100); // Position it below the title
+  ctx.fillStyle = "#000000"; // Black color for controls text
+  ctx.font = "20px Arial"; // Smaller font for controls
+  ctx.fillText(text2, targetX2, 100); // Position it below the title
 
   requestAnimationFrame(animate);
 }
 requestAnimationFrame(animate);
 
- createButton(startButton);
+createButton(startButton);
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
