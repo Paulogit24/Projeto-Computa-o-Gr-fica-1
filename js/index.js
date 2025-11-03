@@ -103,7 +103,15 @@ function animate(timestamp) {
   ctx.fillStyle = grad;
   ctx.fillText(text, x, targetY);
 
+  // Add this to draw the controls text
+    ctx.fillStyle = "#000000"; // Black color for controls text
+    ctx.font = "20px Arial";   // Smaller font for controls
+    ctx.fillText(text2, targetX2, 100); // Position it below the title
+
   requestAnimationFrame(animate);
 }
+requestAnimationFrame(animate);
+
+ createButton(startButton);
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
