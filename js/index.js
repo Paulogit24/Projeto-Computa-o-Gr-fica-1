@@ -63,7 +63,7 @@ const colors = [
   [255, 255, 0], // yellow
 ];
 
-const text2 = "Controls: Usa o rato para mover o lixo pelo labirinto";
+const text2 = "Controls: Usa o rato ou as techas WASD para mover o lixo pelo labirinto";
 const targetX2 = 340;
 const startX2 = 400; // start off-canvas
 const targetY2 = 50;

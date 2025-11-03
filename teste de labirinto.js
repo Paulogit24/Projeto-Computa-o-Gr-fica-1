@@ -62,28 +62,28 @@ drawMaze();
 
 addEventListener("keyup", function(event) {
         let newPos = pos;
-        if(event.key === "ArrowUp" || event.key === "W") {
+        if(event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
             if(maze[pos[0]-1][pos[1]] === 1){
             newPos = [pos[0]-1, pos[1]];
             console.log(newPos);}
         else{
             console.log("Wall ahead!");
         }}
-        if(event.key === "ArrowDown" || event.key === "S") {
+        if(event.key === "ArrowDown" || event.key === "s" || event.key === "S") {
             if(maze[pos[0]+1][pos[1]] === 1){
             newPos = [pos[0]+1, pos[1]];
             console.log(newPos);}
              else{
             console.log("Wall ahead!");
         }}
-        if(event.key === "ArrowLeft" || event.key === "A") {
+        if(event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
             if(maze[pos[0]][pos[1]-1] === 1){
             newPos = [pos[0], pos[1]-1];
             console.log(newPos);}
             else{
             console.log("Wall ahead!");
         }}
-        if(event.key === "ArrowRight" || event.key === "D") {
+        if(event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
             if(maze[pos[0]][pos[1]+1] === 1){
             newPos = [pos[0], pos[1]+1];
             console.log(newPos);}
