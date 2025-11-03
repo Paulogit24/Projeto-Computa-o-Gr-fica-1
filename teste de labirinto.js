@@ -7,19 +7,19 @@ canvas.height = 600;
 
 // Define the maze grid (0 = wall, 1 = path)
 var maze = [
-    [1, 0, 1, 1, 1, 0, 1, 1, 0, 0,0,0,1],
-    [1, 0, 1, 0, 1, 0, 0, 0, 0, 1,1,0,1],
-    [1, 1, 1, 0, 1, 1, 1, 1, 0, 1,1,0,1],
-    [0, 0, 0, 0, 1, 0, 0, 1, 0, 1,1,0,1],
-    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1,1,0,1],
-    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1,1,0,1],
-    [1, 0, 1, 1, 1, 1, 0, 1, 0, 1,1,0,1],
-    [1, 0, 0, 0, 0, 0, 0, 1, 0, 1,1,0,1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 0, 1,1,0,1],
-    [0, 0, 0, 0, 0, 0, 1, 0, 0, 1,1,0,1],
-    [0, 0, 0, 0, 0, 0, 1, 0, 1, 1,1,0,1],
-    [0, 0, 0, 0, 0, 0, 1, 1, 1, 1,1,0,1],
-    [0, 0, 0, 0, 0, 0, 0, 0, 1, 1,1,0,1],
+    [1, 0, 1, 1, 1, 0, 1, 1, 0, 0,0,1,1],
+    [1, 0, 1, 0, 1, 0, 0, 0, 0, 1,1,1,0],
+    [1, 1, 1, 0, 1, 1, 1, 1, 0, 1,0,1,0],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 1,0,1,0],
+    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1,0,1,0],
+    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1,0,1,0],
+    [1, 0, 1, 1, 1, 1, 0, 1, 0, 1,0,1,0],
+    [1, 0, 0, 0, 0, 0, 0, 1, 0, 1,0,1,0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 0, 1,0,1,0],
+    [0, 0, 0, 0, 0, 0, 1, 0, 0, 1,0,1,0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 1, 1,0,1,0],
+    [1, 0, 0, 0, 0, 0, 1, 1, 1, 0,0,1,0],
+    [1, 1, 1, 1, 1, 0, 0, 0, 1, 0,0,1,0],
 ];
  var pos = [0,0]; // starting position
 maze[pos[0]][pos[1]] = 2; // mark starting position
@@ -49,9 +49,6 @@ function drawMaze() {
                 ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
             }
             
-            //ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-            //ctx.strokeStyle = '#ffffffff';
-            //ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         }
     }
     ;
@@ -60,7 +57,7 @@ function drawMaze() {
 // Initial draw
 drawMaze();
 
-addEventListener("keyup", function(event) {
+addEventListener("keyup", function(event) {  //controls
         let newPos = pos;
         if(event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
             if(maze[pos[0]-1][pos[1]] === 1){
@@ -95,5 +92,6 @@ addEventListener("keyup", function(event) {
         maze[pos[0]][pos[1]] = 2; // mark new position
 
         drawMaze();
+        console.log(maze);  
         }
         )
