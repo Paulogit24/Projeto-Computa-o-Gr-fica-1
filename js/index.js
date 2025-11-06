@@ -23,11 +23,11 @@ function maze1(){
     ];
  var pos = [0,0]; // starting position
   maze[pos[0]][pos[1]] = 2; // mark starting position
-// Cell size
-const cellSize = canvas.width / maze.length;
+  // Cell size
+  const cellSize = canvas.width / maze.length;
 
-// Draw the maze
-function drawMaze() {
+  // Draw the maze
+  function drawMaze() {
     
     for(let row = 0; row < maze.length; row++) {
         for(let col = 0; col < maze[row].length; col++) {
@@ -52,13 +52,13 @@ function drawMaze() {
         }
     }
     ;
-}
+  }
 
-// Initial draw
-drawMaze();
+  // Initial draw
+  drawMaze();
 
-//controls
-addEventListener("keydown", function(event) {  
+  //controls
+  addEventListener("keydown", function(event) {  
         let newPos = pos;
         if(event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
             if(maze[pos[0]-1][pos[1]] === 1){
