@@ -1,5 +1,102 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
+function clearcanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+function maze1(){
+  clearcanvas();
+    // Define the maze grid (0 = wall, 1 = path)
+var maze = [
+    [1, 0, 1, 1, 1, 0, 1, 1, 0, 0,0,1,1],
+    [1, 0, 1, 0, 1, 0, 0, 0, 0, 1,1,1,0],
+    [1, 1, 1, 0, 1, 1, 1, 1, 0, 1,0,1,0],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 1,0,1,0],
+    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1,0,1,0],
+    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1,0,1,0],
+    [1, 0, 1, 1, 1, 1, 0, 1, 0, 1,0,1,0],
+    [1, 0, 0, 0, 0, 0, 0, 1, 0, 1,0,1,0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 0, 1,0,1,0],
+    [0, 0, 0, 0, 0, 0, 1, 0, 0, 1,0,1,0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 1, 1,0,1,0],
+    [1, 0, 0, 0, 0, 0, 1, 1, 1, 0,0,1,0],
+    [1, 1, 1, 1, 1, 0, 0, 0, 1, 0,0,1,0],
+];
+ var pos = [0,0]; // starting position
+maze[pos[0]][pos[1]] = 2; // mark starting position
+// Cell size
+const cellSize = canvas.width / maze.length;
+
+// Draw the maze
+function drawMaze() {
+    
+    for(let row = 0; row < maze.length; row++) {
+        for(let col = 0; col < maze[row].length; col++) {
+            if(maze[row][col] === 0) {
+                ctx.fillStyle = 'black';
+                ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+                ctx.strokeStyle = '#000000ff';
+                ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+            } else if(maze[row][col] === 1) {
+                ctx.fillStyle = 'white';
+                ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+                ctx.strokeStyle = '#ffffffff';
+                ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+            }
+            else if(maze[row][col] === 2) {
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+                ctx.strokeStyle = '#0000ffff';
+                ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+            }
+            
+        }
+    }
+    ;
+}
+
+// Initial draw
+drawMaze();
+
+//controls
+addEventListener("keydown", function(event) {  
+        let newPos = pos;
+        if(event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
+            if(maze[pos[0]-1][pos[1]] === 1){
+            newPos = [pos[0]-1, pos[1]];
+            console.log(newPos);}
+        else{
+            console.log("Wall ahead!");
+        }}
+        if(event.key === "ArrowDown" || event.key === "s" || event.key === "S") {
+            if(maze[pos[0]+1][pos[1]] === 1){
+            newPos = [pos[0]+1, pos[1]];
+            console.log(newPos);}
+             else{
+            console.log("Wall ahead!");
+        }}
+        if(event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
+            if(maze[pos[0]][pos[1]-1] === 1){
+            newPos = [pos[0], pos[1]-1];
+            console.log(newPos);}
+            else{
+            console.log("Wall ahead!");
+        }}
+        if(event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
+            if(maze[pos[0]][pos[1]+1] === 1){
+            newPos = [pos[0], pos[1]+1];
+            console.log(newPos);}
+            else{
+            console.log("Wall ahead!");
+        }}
+        maze[pos[0]][pos[1]] = 1; // clear previous position
+        pos = newPos;
+        maze[pos[0]][pos[1]] = 2; // mark new position
+
+        drawMaze();
+        console.log(maze);  
+        }
+        )
+}
 // botão de start
 const startButton = {
   x: 250,
@@ -39,18 +136,7 @@ function createButton(button) {
   ctx.stroke();
 }
 
-canvas.addEventListener("click", function (event) {
-  const mouseX = event.clientX - canvas.offsetLeft;
-  const mouseY = event.clientY - canvas.offsetTop;
-  if (
-    mouseX >= startButton.x &&
-    mouseX <= startButton.x + startButton.width &&
-    mouseY >= startButton.y &&
-    mouseY <= startButton.y + startButton.height
-  ) {
-    window.location.href = "teste de labirinto.htm"; // redireciona para a página do jogo
-  }
-});
+;
 
 const text = "Labirinto de Lixo";
 const targetX = 340;
@@ -126,5 +212,16 @@ function animate(timestamp) {
 requestAnimationFrame(animate);
 
 createButton(startButton);
+
+canvas.addEventListener("click", function (event) {
+  const mouseX = event.clientX - canvas.offsetLeft;
+  const mouseY = event.clientY - canvas.offsetTop;
+  if (
+    mouseX >= startButton.x &&
+    mouseX <= startButton.x + startButton.width &&
+    mouseY >= startButton.y &&
+    mouseY <= startButton.y + startButton.height
+  )  {maze1();}
+})
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
