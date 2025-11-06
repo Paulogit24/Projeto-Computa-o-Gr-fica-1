@@ -244,10 +244,12 @@ function animate(timestamp) {
   ctx.font = "20px Arial"; // Smaller font for controls
   ctx.fillText(text2, targetX2, 100); // Position it below the title
   if (lvl === 0) {
-  requestAnimationFrame(animate);}
+  requestAnimationFrame(animate);
+}
 
   if (lvl === 1) {
-  maze1();}
+  maze1();
+  }
   
 
 }
@@ -290,10 +292,10 @@ function lvl1() {
   maze1();
   
   console.log("lvl1");
-  }
-  startMenu ();
+}
+startMenu ();
 
- function game() {
+function game() {
   
 
  }
