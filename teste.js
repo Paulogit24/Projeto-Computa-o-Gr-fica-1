@@ -51,7 +51,7 @@ function maze1(){
   [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
   [0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
   [4, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], 
 ];
 let pos = [0, 0]; // starting position
 maze[pos[0]][pos[1]] = 2; // mark starting position
@@ -65,32 +65,32 @@ function drawMaze() {
       if (maze[row][col] === 0) {
         ctx.fillStyle = "black";
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#000000ff";
+        ctx.strokeStyle = "black";
         ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
       } else if (maze[row][col] === 1) {
         ctx.fillStyle = "white";
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
+        ctx.strokeStyle = "white";
         ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
       } else if (maze[row][col] === 2) {
         ctx.fillStyle = "grey";
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#49494bff";
+        ctx.strokeStyle = "grey";
         ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
       } else if (maze[row][col] === 3) {
         ctx.fillStyle = "blue";
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
+        ctx.strokeStyle = "blue";
         ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
       } else if (maze[row][col] === 4) {
         ctx.fillStyle = "yellow";
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
+        ctx.strokeStyle = "yellow";
         ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
       } else if (maze[row][col] === 5) {
         ctx.fillStyle = "green";
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
+        ctx.strokeStyle = "green";
         ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
       }
             
