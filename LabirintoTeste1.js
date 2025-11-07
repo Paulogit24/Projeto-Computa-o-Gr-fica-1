@@ -73,7 +73,7 @@ function drawMaze() {
 // Initial draw
 drawMaze();
 
-addEventListener("keyup", function (event) {
+addEventListener("keydown", function (event) {
   let newPos = pos;
   if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
     if (maze[pos[0] - 1][pos[1]] === 1) {

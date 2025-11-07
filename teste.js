@@ -3,8 +3,40 @@ const ctx = canvas.getContext("2d");
 function clearcanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
+var buff = 0;
+var lvl = 0;
+var nlvl = 0;
+function createButton(button) {
+  //retângulo do botão
+  ctx.roundRect(
+    button.x,
+    button.y,
+    button.width,
+    button.height,
+    button.borderRadius
+  );
+  ctx.fillStyle = button.color; // Cor do botão
+  ctx.fill();
+  //texto do botão
+  ctx.fillStyle = button.textColor; // Cor do texto
+  ctx.font = "30px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(
+    button.text,
+    button.x + button.width / 2,
+    button.y + button.height / 2
+  );
+  //borda do botão
+  ctx.strokeStyle = button.border; // Cor da borda
+  ctx.lineWidth = 4;
+  ctx.stroke();
+}
 function maze1(){
+  console.log("maze1");
+  nlvl = 1;
   clearcanvas();
+  
     // Define the maze grid (0 = wall, 1 = path)
     var maze = [
         [1, 0, 1, 1, 1, 0, 1, 1, 0, 0,0,1,1],
@@ -24,7 +56,7 @@ function maze1(){
  var pos = [0,0]; // starting position
   maze[pos[0]][pos[1]] = 2; // mark starting position
   // Cell size
-  const cellSize = canvas.width / maze.length;
+  const cellSize = canvas.height / maze.length;
 
   // Draw the maze
   function drawMaze() {
@@ -53,9 +85,21 @@ function maze1(){
     }
     ;
   }
-
+  const BackButton = {
+    x: 550,
+    y: 300,
+    width: 100,
+    height: 100,
+    text: "menu",
+    textColor: "#ffffff",
+    color: "#44ff00ff",
+    border: "#054d04ff",
+    borderRadius: 20,
+  };
+  createButton(BackButton);
   // Initial draw
   drawMaze();
+
 
   //controls
   addEventListener("keydown", function(event) {  
@@ -88,6 +132,7 @@ function maze1(){
             else{
             console.log("Wall ahead!");
         }}
+        if(event.key === "t" || event.key === "T") {lvl = 1;  return;}
         maze[pos[0]][pos[1]] = 1; // clear previous position
         pos = newPos;
         maze[pos[0]][pos[1]] = 2; // mark new position
@@ -96,8 +141,25 @@ function maze1(){
         console.log(maze);  
         }
         )
+        addEventListener("click", function (event) {
+    const mouseX = event.clientX - canvas.offsetLeft;
+    const mouseY = event.clientY - canvas.offsetTop;
+    if (
+      mouseX >= BackButton.x &&
+      mouseX <= BackButton.x + BackButton.width &&
+      mouseY >= BackButton.y &&
+      mouseY <= BackButton.y + BackButton.height
+    )  {lvl = 0;
+        console.log("back button clicked!");
+        console.log(lvl);
+        startMenu();
+      }})
 }
+
+
 // botão de start
+function startMenu() {
+  nlvl = 0;
 const startButton = {
   x: 250,
   y: 300,
@@ -109,32 +171,7 @@ const startButton = {
   border: "#054d04ff",
   borderRadius: 20,
 };
-function createButton(button) {
-  //retângulo do botão
-  ctx.roundRect(
-    button.x,
-    button.y,
-    button.width,
-    button.height,
-    button.borderRadius
-  );
-  ctx.fillStyle = button.color; // Cor do botão
-  ctx.fill();
-  //texto do botão
-  ctx.fillStyle = button.textColor; // Cor do texto
-  ctx.font = "30px Arial";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(
-    button.text,
-    button.x + button.width / 2,
-    button.y + button.height / 2
-  );
-  //borda do botão
-  ctx.strokeStyle = button.border; // Cor da borda
-  ctx.lineWidth = 4;
-  ctx.stroke();
-}
+
 
 ;
 
@@ -206,8 +243,15 @@ function animate(timestamp) {
   ctx.fillStyle = "#000000"; // Black color for controls text
   ctx.font = "20px Arial"; // Smaller font for controls
   ctx.fillText(text2, targetX2, 100); // Position it below the title
-
+  if (lvl === 0) {
   requestAnimationFrame(animate);
+}
+
+  if (lvl === 1) {
+  maze1();
+  }
+  
+
 }
 requestAnimationFrame(animate);
 
@@ -221,7 +265,40 @@ canvas.addEventListener("click", function (event) {
     mouseX <= startButton.x + startButton.width &&
     mouseY >= startButton.y &&
     mouseY <= startButton.y + startButton.height
-  )  {maze1();}
+  )  {lvl = 1;
+    console.log("Start button clicked!");
+    console.log(lvl);
+    return
+    ;
+  }
 })
+
+}
+function lvl1() {
+  //clearcanvas();
+  const BackButton = {
+    x: 550,
+    y: 300,
+    width: 100,
+    height: 100,
+    text: "Start",
+    textColor: "#ffffff",
+    color: "#44ff00ff",
+    border: "#054d04ff",
+    borderRadius: 20,
+  };
+
+  createButton(BackButton);
+  maze1();
+  
+  console.log("lvl1");
+}
+startMenu ();
+
+function game() {
+  
+
+ }
+
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
