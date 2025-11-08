@@ -27,7 +27,8 @@ let maze1 =  {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], ],
   pos : [0,0] // starting position
   };
-let maze2 = [
+let maze2 = {
+  maze :[
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
   [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
   [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
@@ -40,10 +41,12 @@ let maze2 = [
   [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
   [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
   [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
-  [5, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 4],
-];
+  [5, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 4],],
+  pos : [0,0] // starting position
+};
 
-let maze3 = [
+let maze3 ={ 
+  maze :[
   [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
   [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
   [1, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0],
@@ -56,9 +59,9 @@ let maze3 = [
   [1, 0, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
   [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
-  [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0],
-];
-
+  [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
+  pos : [0,0] // starting position;
+}
 
 function createButton(button) {
   //retângulo do botão
@@ -147,6 +150,128 @@ function drawMaze1() {
     }
     ;
   }
+
+  function drawMaze2() {
+  clearcanvas()
+  maze2.maze[maze2.pos[0]][maze2.pos[1]] = 2; // mark starting position
+    // Cell size
+      const cellSize = canvas.height / maze2.maze.length;
+      img.src = "img/blue.png";
+      img.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img2 = new Image();
+      img2.src = "img/yellow.jpg";
+      img2.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img3 = new Image();
+      img3.src = "img/green.png";
+      img3.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
+      };
+    for (let row = 0; row < maze2.maze.length; row++) {
+      for (let col = 0; col < maze2.maze[row].length; col++) {
+        if (maze2.maze[row][col] === 0) {
+          ctx.fillStyle = "black";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "black";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 1) {
+          ctx.fillStyle = "white";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "white";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 2) {
+          ctx.fillStyle = "grey";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "grey";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 3) {
+          ctx.fillStyle = "blue";
+          ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 4) {
+          ctx.fillStyle = "yellow";
+          ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 5) {
+          ctx.fillStyle = "green";
+          ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
+
+      }
+    }
+    ;
+  }
+
+  function drawMaze3() {
+  clearcanvas()
+  maze3.maze[maze3.pos[0]][maze3.pos[1]] = 2; // mark starting position
+    // Cell size
+      const cellSize = canvas.height / maze3.maze.length;
+      img.src = "img/blue.png";
+      img.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img2 = new Image();
+      img2.src = "img/yellow.jpg";
+      img2.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img3 = new Image();
+      img3.src = "img/green.png";
+      img3.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
+      };
+    for (let row = 0; row < maze3.maze.length; row++) {
+      for (let col = 0; col < maze3.maze[row].length; col++) {
+        if (maze3.maze[row][col] === 0) {
+          ctx.fillStyle = "black";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "black";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 1) {
+          ctx.fillStyle = "white";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "white";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 2) {
+          ctx.fillStyle = "grey";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "grey";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 3) {
+          ctx.fillStyle = "blue";
+          ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 4) {
+          ctx.fillStyle = "yellow";
+          ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 5) {
+          ctx.fillStyle = "green";
+          ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
+
+      }
+    }
+    ;
+  }
   /*
 //function maze1() {
   console.log("maze1");
@@ -223,7 +348,101 @@ function drawMaze1() {
   }
   else {console.log("not lvl 1");}
 
-    if (event.key === "t" || event.key === "T") { lvl = 0; return; }
+  if (lvl === 2) {
+    let pos = maze2.pos;
+    if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
+      if (maze2.maze[pos[0] - 1][pos[1]] === 1) {
+        maze2.maze[pos[0]][pos[1]] = 1;
+        maze2.pos = [pos[0] - 1, pos[1]];
+        console.log(maze2.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowDown" || event.key === "s" || event.key === "S") {
+      if (maze2.maze[pos[0] + 1][pos[1]] === 1) {
+        maze2.maze[pos[0]][pos[1]] = 1;
+        maze2.pos = [pos[0] + 1, pos[1]];
+        console.log(maze2.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
+      if (maze2.maze[pos[0]][pos[1] - 1] === 1) {
+        maze2.maze[pos[0]][pos[1]] = 1;
+        maze2.pos = [pos[0], pos[1] - 1];
+        console.log(maze2.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
+      if (maze2.maze[pos[0]][pos[1] + 1] === 1) {
+        maze2.maze[pos[0]][pos[1]] = 1;
+        maze2.pos = [pos[0], pos[1] + 1];
+        console.log(maze2.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+  }
+  else {console.log("not lvl 2");}
+
+  if (lvl === 3) {
+    let pos = maze3.pos;
+    if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
+      if (maze3.maze[pos[0] - 1][pos[1]] === 1) {
+        maze3.maze[pos[0]][pos[1]] = 1;
+        maze3.pos = [pos[0] - 1, pos[1]];
+        console.log(maze3.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowDown" || event.key === "s" || event.key === "S") {
+      if (maze3.maze[pos[0] + 1][pos[1]] === 1) {
+        maze3.maze[pos[0]][pos[1]] = 1;
+        maze3.pos = [pos[0] + 1, pos[1]];
+        console.log(maze3.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
+      if (maze3.maze[pos[0]][pos[1] - 1] === 1) {
+        maze3.maze[pos[0]][pos[1]] = 1;
+        maze3.pos = [pos[0], pos[1] - 1];
+        console.log(maze3.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
+      if (maze3.maze[pos[0]][pos[1] + 1] === 1) {
+        maze3.maze[pos[0]][pos[1]] = 1;
+        maze3.pos = [pos[0], pos[1] + 1];
+        console.log(maze3.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+  }
+  else {console.log("not lvl 3");}
+
+
+    if (event.key === "1" ) { lvl = 1; return; }
+    if (event.key === "2" ) { lvl = 2; return; }
+    if (event.key === "3" ) { lvl = 3; return; }
+    if (event.key === "t" || event.key === "T" || event.key === "esc") { lvl = 0; return; }
     /*maze[pos[0]][pos[1]] = 1; // clear previous position
     pos = maze1.pos;
     maze[pos[0]][pos[1]] = 2; // mark new position
@@ -345,6 +564,13 @@ function startMenu() {
 
     if (lvl === 1) {
       drawMaze1();
+    }
+
+    if (lvl === 2) {
+      drawMaze2();
+    }
+    if (lvl === 3) {
+      drawMaze3();
     }
 
     requestAnimationFrame(animate);
