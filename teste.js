@@ -3,9 +3,63 @@ const ctx = canvas.getContext("2d");
 function clearcanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
+
+const img = new Image();
+
+
 var buff = 0;
 var lvl = 0;
 var nlvl = 0;
+let maze1 =  {
+  maze : [
+    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+    [1, 0, 1, 1, 1, 5, 0, 1, 0, 1, 1, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1],
+    [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+    [0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
+    [4, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], ],
+  pos : [0,0] // starting position
+  };
+let maze2 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
+  [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
+  [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
+  [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+  [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
+  [5, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 4],
+];
+
+let maze3 = [
+  [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
+  [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
+  [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
+  [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+];
+
+
 function createButton(button) {
   //retângulo do botão
   ctx.roundRect(
@@ -32,72 +86,80 @@ function createButton(button) {
   ctx.lineWidth = 4;
   ctx.stroke();
 }
-function maze1(){
-  console.log("maze1");
-  nlvl = 1;
-  clearcanvas();
-  
-    // Define the maze grid (0 = wall, 1 = path)
-   let maze = [
-  [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
-  [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1],
-  [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
-  [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
-  [1, 0, 1, 1, 1, 5, 0, 1, 0, 1, 1, 0, 0],
-  [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1],
-  [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
-  [0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
-  [4, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], 
-];
-let pos = [0, 0]; // starting position
-maze[pos[0]][pos[1]] = 2; // mark starting position
-// Cell size
-const cellSize = canvas.height / maze.length;
 
-// Draw the maze
-function drawMaze() {
-  for (let row = 0; row < maze.length; row++) {
-    for (let col = 0; col < maze[row].length; col++) {
-      if (maze[row][col] === 0) {
-        ctx.fillStyle = "black";
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "black";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze[row][col] === 1) {
-        ctx.fillStyle = "white";
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "white";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze[row][col] === 2) {
-        ctx.fillStyle = "grey";
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "grey";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze[row][col] === 3) {
-        ctx.fillStyle = "blue";
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "blue";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze[row][col] === 4) {
-        ctx.fillStyle = "yellow";
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "yellow";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze[row][col] === 5) {
-        ctx.fillStyle = "green";
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "green";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      }
-            
+function drawMaze1() {
+  clearcanvas()
+  maze1.maze[maze1.pos[0]][maze1.pos[1]] = 2; // mark starting position
+    // Cell size
+      const cellSize = canvas.height / maze1.maze.length;
+      img.src = "img/blue.png";
+      img.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img2 = new Image();
+      img2.src = "img/yellow.jpg";
+      img2.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img3 = new Image();
+      img3.src = "img/green.png";
+      img3.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
+      };
+    for (let row = 0; row < maze1.maze.length; row++) {
+      for (let col = 0; col < maze1.maze[row].length; col++) {
+        if (maze1.maze[row][col] === 0) {
+          ctx.fillStyle = "black";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "black";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 1) {
+          ctx.fillStyle = "white";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "white";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 2) {
+          ctx.fillStyle = "grey";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "grey";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 3) {
+          ctx.fillStyle = "blue";
+          ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 4) {
+          ctx.fillStyle = "yellow";
+          ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 5) {
+          ctx.fillStyle = "green";
+          ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         }
+
+      }
     }
     ;
   }
+  /*
+//function maze1() {
+  console.log("maze1");
+  nlvl = 1;
+  clearcanvas();
+
+  // Define the maze grid (0 = wall, 1 = path)
+  
+  
+
+
+  // Draw the maze
+  
   const BackButton = {
     x: 550,
     y: 300,
@@ -111,50 +173,66 @@ function drawMaze() {
   };
   createButton(BackButton);
   // Initial draw
-  drawMaze();
+  drawMaze();*/
 
 
   //controls
-  addEventListener("keydown", function(event) {  
-        let newPos = pos;
-        if(event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
-            if(maze[pos[0]-1][pos[1]] === 1){
-            newPos = [pos[0]-1, pos[1]];
-            console.log(newPos);}
-        else{
-            console.log("Wall ahead!");
-        }}
-        if(event.key === "ArrowDown" || event.key === "s" || event.key === "S") {
-            if(maze[pos[0]+1][pos[1]] === 1){
-            newPos = [pos[0]+1, pos[1]];
-            console.log(newPos);}
-             else{
-            console.log("Wall ahead!");
-        }}
-        if(event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
-            if(maze[pos[0]][pos[1]-1] === 1){
-            newPos = [pos[0], pos[1]-1];
-            console.log(newPos);}
-            else{
-            console.log("Wall ahead!");
-        }}
-        if(event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
-            if(maze[pos[0]][pos[1]+1] === 1){
-            newPos = [pos[0], pos[1]+1];
-            console.log(newPos);}
-            else{
-            console.log("Wall ahead!");
-        }}
-        if(event.key === "t" || event.key === "T") {lvl = 1;  return;}
-        maze[pos[0]][pos[1]] = 1; // clear previous position
-        pos = newPos;
-        maze[pos[0]][pos[1]] = 2; // mark new position
+  addEventListener("keyup", function (event) {
+    if (lvl === 1) {
+    let pos = maze1.pos;
+    if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
+      if (maze1.maze[pos[0] - 1][pos[1]] === 1) {
+        maze1.maze[pos[0]][pos[1]] = 1;
+        maze1.pos = [pos[0] - 1, pos[1]];
+        console.log(maze1.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowDown" || event.key === "s" || event.key === "S") {
+      if (maze1.maze[pos[0] + 1][pos[1]] === 1) {
+        maze1.maze[pos[0]][pos[1]] = 1;
+        maze1.pos = [pos[0] + 1, pos[1]];
+        console.log(maze1.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowLeft" || event.key === "a" || event.key === "A") {
+      if (maze1.maze[pos[0]][pos[1] - 1] === 1) {
+        maze1.maze[pos[0]][pos[1]] = 1;
+        maze1.pos = [pos[0], pos[1] - 1];
+        console.log(maze1.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+    if (event.key === "ArrowRight" || event.key === "d" || event.key === "D") {
+      if (maze1.maze[pos[0]][pos[1] + 1] === 1) {
+        maze1.maze[pos[0]][pos[1]] = 1;
+        maze1.pos = [pos[0], pos[1] + 1];
+        console.log(maze1.pos);
+      }
+      else {
+        console.log("Wall ahead!");
+      }
+    }
+  }
+  else {console.log("not lvl 1");}
 
-        drawMaze();
-        console.log(maze);  
-        }
-        )
-        addEventListener("click", function (event) {
+    if (event.key === "t" || event.key === "T") { lvl = 0; return; }
+    /*maze[pos[0]][pos[1]] = 1; // clear previous position
+    pos = maze1.pos;
+    maze[pos[0]][pos[1]] = 2; // mark new position
+
+    drawMaze();
+    console.log(maze);*/
+  }
+  )
+  addEventListener("click", function (event) {
     const mouseX = event.clientX - canvas.offsetLeft;
     const mouseY = event.clientY - canvas.offsetTop;
     if (
@@ -162,129 +240,136 @@ function drawMaze() {
       mouseX <= BackButton.x + BackButton.width &&
       mouseY >= BackButton.y &&
       mouseY <= BackButton.y + BackButton.height
-    )  {lvl = 0;
-        console.log("back button clicked!");
-        console.log(lvl);
-        startMenu();
-      }})
-}
+    ) {
+      lvl = 0;
+      console.log("back button clicked!");
+      console.log(lvl);
+      startMenu();
+    }
+  })
+
+
 
 
 // botão de start
 function startMenu() {
   nlvl = 0;
-const startButton = {
-  x: 250,
-  y: 300,
-  width: 175,
-  height: 100,
-  text: "Start",
-  textColor: "#ffffff",
-  color: "#44ff00ff",
-  border: "#054d04ff",
-  borderRadius: 20,
-};
+  const startButton = {
+    x: 250,
+    y: 300,
+    width: 175,
+    height: 100,
+    text: "Start",
+    textColor: "#ffffff",
+    color: "#44ff00ff",
+    border: "#054d04ff",
+    borderRadius: 20,
+  };
 
 
-;
+  ;
 
-const text = "Labirinto de Lixo";
-const targetX = 340;
-const startX = -400; // start off-canvas
-const targetY = 50;
-const colorDuration = 1200; // ms per color transition
-const colors = [
-  [0, 0, 255], // blue
-  [0, 255, 0], // green
-  [255, 255, 0], // yellow
-];
-
-const text2 = "Controls: Usa o rato ou as techas WASD para mover o lixo pelo labirinto";
-const targetX2 = 340;
-const startX2 = 400; // start off-canvas
-const targetY2 = 50;
-
-function lerp(a, b, t) {
-  return a + (b - a) * t;
-}
-function lerpColor(a, b, t) {
-  return [
-    Math.round(lerp(a[0], b[0], t)),
-    Math.round(lerp(a[1], b[1], t)),
-    Math.round(lerp(a[2], b[2], t)),
+  const text = "Labirinto de Lixo";
+  const targetX = 340;
+  const startX = -400; // start off-canvas
+  const targetY = 50;
+  const colorDuration = 1200; // ms per color transition
+  const colors = [
+    [0, 0, 255], // blue
+    [0, 255, 0], // green
+    [255, 255, 0], // yellow
   ];
-}
-function rgbToString(rgb) {
-  return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-}
-const totalColorCycle = colors.length * colorDuration;
 
-let startTime = null;
-function animate(timestamp) {
-  if (!startTime) startTime = timestamp;
-  const elapsed = timestamp - startTime;
+  const text2 = "Controls: Usa o rato ou as techas WASD para mover o lixo pelo labirinto";
+  const targetX2 = 340;
+  const startX2 = 400; // start off-canvas
+  const targetY2 = 50;
 
-  // keep text fixed in the original position
-  const x = targetX;
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
+  function lerpColor(a, b, t) {
+    return [
+      Math.round(lerp(a[0], b[0], t)),
+      Math.round(lerp(a[1], b[1], t)),
+      Math.round(lerp(a[2], b[2], t)),
+    ];
+  }
+  function rgbToString(rgb) {
+    return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+  }
+  const totalColorCycle = colors.length * colorDuration;
 
-  // clear and redraw
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  let startTime = null;
+
+  function animate(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+
+    if (lvl === 0) {
+      // keep text fixed in the original position
+      const x = targetX;
+
+      // clear and redraw
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      createButton(startButton);
+
+      // ensure font is set before measuring
+      ctx.font = "30px Arial";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      // create a sliding linear gradient for the text color
+      const textWidth = ctx.measureText(text).width;
+      const gradientLength = textWidth * 2; // length of the moving gradient
+      const pos = (elapsed % totalColorCycle) / totalColorCycle; // 0..1 over full color cycle
+      const gradStart = x - textWidth + pos * gradientLength;
+      const gradEnd = gradStart + gradientLength;
+      const grad = ctx.createLinearGradient(gradStart, targetY, gradEnd, targetY);
+
+      grad.addColorStop(0, rgbToString(colors[0]));
+      grad.addColorStop(0.5, rgbToString(colors[1]));
+      grad.addColorStop(1, rgbToString(colors[2]));
+
+      ctx.fillStyle = grad;
+      ctx.fillText(text, x, targetY);
+
+      // Add this to draw the controls text
+      ctx.fillStyle = "#000000"; // Black color for controls text
+      ctx.font = "20px Arial"; // Smaller font for controls
+      ctx.fillText(text2, targetX2, 100); // Position it below the title
+
+
+    }
+
+    if (lvl === 1) {
+      drawMaze1();
+    }
+
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+  //animate();
 
   createButton(startButton);
 
-  // ensure font is set before measuring
-  ctx.font = "30px Arial";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-
-  // create a sliding linear gradient for the text color
-  const textWidth = ctx.measureText(text).width;
-  const gradientLength = textWidth * 2; // length of the moving gradient
-  const pos = (elapsed % totalColorCycle) / totalColorCycle; // 0..1 over full color cycle
-  const gradStart = x - textWidth + pos * gradientLength;
-  const gradEnd = gradStart + gradientLength;
-  const grad = ctx.createLinearGradient(gradStart, targetY, gradEnd, targetY);
-
-  grad.addColorStop(0, rgbToString(colors[0]));
-  grad.addColorStop(0.5, rgbToString(colors[1]));
-  grad.addColorStop(1, rgbToString(colors[2]));
-
-  ctx.fillStyle = grad;
-  ctx.fillText(text, x, targetY);
-
-  // Add this to draw the controls text
-  ctx.fillStyle = "#000000"; // Black color for controls text
-  ctx.font = "20px Arial"; // Smaller font for controls
-  ctx.fillText(text2, targetX2, 100); // Position it below the title
-  if (lvl === 0) {
-  requestAnimationFrame(animate);
-}
-
-  if (lvl === 1) {
-  maze1();
-  }
-  
-
-}
-requestAnimationFrame(animate);
-
-createButton(startButton);
-
-canvas.addEventListener("click", function (event) {
-  const mouseX = event.clientX - canvas.offsetLeft;
-  const mouseY = event.clientY - canvas.offsetTop;
-  if (
-    mouseX >= startButton.x &&
-    mouseX <= startButton.x + startButton.width &&
-    mouseY >= startButton.y &&
-    mouseY <= startButton.y + startButton.height
-  )  {lvl = 1;
-    console.log("Start button clicked!");
-    console.log(lvl);
-    return
-    ;
-  }
-})
+  canvas.addEventListener("click", function (event) {
+    const mouseX = event.clientX - canvas.offsetLeft;
+    const mouseY = event.clientY - canvas.offsetTop;
+    if (
+      mouseX >= startButton.x &&
+      mouseX <= startButton.x + startButton.width &&
+      mouseY >= startButton.y &&
+      mouseY <= startButton.y + startButton.height
+    ) {
+      lvl = 1;
+      console.log("Start button clicked!");
+      console.log(lvl);
+      return
+        ;
+    }
+  })
 
 }
 function lvl1() {
@@ -303,15 +388,15 @@ function lvl1() {
 
   createButton(BackButton);
   maze1();
-  
+
   console.log("lvl1");
 }
-startMenu ();
+startMenu();
 
 function game() {
-  
 
- }
+
+}
 
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
