@@ -856,7 +856,7 @@ function wrongAnswer() {
 
 }
 
-function congratulationsPage {
+function congratulationsPage() {
   const text = "PARABÉNS!";
   const targetX = 340;
   const startX = -400; // start off-canvas
