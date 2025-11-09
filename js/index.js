@@ -1,5 +1,26 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
+
+// Create a proxy to handle state changes
+const gameState = new Proxy({
+    lvl: 0
+}, {
+    set: function(target, property, value) {
+        const oldValue = target[property];
+        target[property] = value;
+        
+        // Handle level changes
+        if (property === 'lvl' && oldValue !== value) {
+            console.log(`Level changed from ${oldValue} to ${value}`);
+            if (value === 1) {
+                
+                maze1();         // Start the maze
+            }
+        }
+        return true;
+    }
+});
+
 function clearcanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
@@ -221,7 +242,9 @@ canvas.addEventListener("click", function (event) {
     mouseX <= startButton.x + startButton.width &&
     mouseY >= startButton.y &&
     mouseY <= startButton.y + startButton.height
-  )  {maze1();}
-})
+  && gameState.lvl === 0)  
+  {console.log("valid"); gameState.lvl = 1;}  // This will trigger the proxy handler
+ //{maze1();}
+})  ;
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
