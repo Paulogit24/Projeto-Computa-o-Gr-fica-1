@@ -838,5 +838,19 @@ function wrongAnswer() {
 
 }
 
+function congratulationsPage {
+  const text = "PARABÉNS!";
+  const targetX = 340;
+  const startX = -400; // start off-canvas
+  const targetY = 50;
+  const colorDuration = 1200; // ms per color transition
+  const textColor = "Black"
+
+  const text2 = "Concluistes todos os labirintos";
+  const targetX2 = 340;
+  const startX2 = 400; // start off-canvas
+  const targetY2 = 50;
+
+}
 
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
