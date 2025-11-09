@@ -25,7 +25,8 @@ let maze1 =  {
     [0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
     [4, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], ],
-  pos : [0,0] // starting position
+  pos : [0,0], // starting position
+  objctive : 3,
   };
 let maze2 = {
   maze :[
@@ -42,7 +43,8 @@ let maze2 = {
   [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
   [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
   [5, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 4],],
-  pos : [0,0] // starting position
+  pos : [0,0], // starting position
+  objctive : 4,
 };
 
 let maze3 ={ 
@@ -60,7 +62,8 @@ let maze3 ={
   [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
   [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
   [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
-  pos : [0,0] // starting position;
+  pos : [0,0], // starting position;
+  objctive : 5,
 }
 
 function resetlvl(level) {
@@ -80,7 +83,8 @@ function resetlvl(level) {
     [0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
     [4, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], ],
-  pos : [0,0] // starting position
+  pos : [0,0], // starting position
+  objctive: 3,
   };}
 
   else if (level === 2){
@@ -99,7 +103,8 @@ function resetlvl(level) {
   [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
   [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
   [5, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 4],],
-  pos : [0,0] // starting position
+  pos : [0,0], // starting position
+  objctive: 4,
 };}
 
   else if (level === 3){
@@ -118,7 +123,8 @@ function resetlvl(level) {
   [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
   [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
   [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
-  pos : [0,0] // starting position;
+  pos : [0,0], // starting position;
+  objctive: 5,
 }
 }
 
@@ -429,6 +435,9 @@ function drawMaze1() {
         maze1.pos = [pos[0] - 1, pos[1]];
         console.log(maze1.pos);
       }
+      else if (maze1.maze[pos[0] - 1][pos[1]] === maze1.objctive) {
+        lvl = 2
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -439,6 +448,7 @@ function drawMaze1() {
         maze1.pos = [pos[0] + 1, pos[1]];
         console.log(maze1.pos);
       }
+      else if (maze1.maze[pos[0] + 1][pos[1]] === maze1.objctive){lvl =2}
       else {
         console.log("Wall ahead!");
       }
@@ -449,6 +459,7 @@ function drawMaze1() {
         maze1.pos = [pos[0], pos[1] - 1];
         console.log(maze1.pos);
       }
+      else if (maze1.maze[pos[0]][pos[1] - 1] === maze1.objctive){lvl =2}
       else {
         console.log("Wall ahead!");
       }
@@ -459,6 +470,7 @@ function drawMaze1() {
         maze1.pos = [pos[0], pos[1] + 1];
         console.log(maze1.pos);
       }
+      else if (maze1.maze[pos[0]][pos[1] + 1] === maze1.objctive){lvl =2}
       else {
         console.log("Wall ahead!");
       }
@@ -474,6 +486,9 @@ function drawMaze1() {
         maze2.pos = [pos[0] - 1, pos[1]];
         console.log(maze2.pos);
       }
+      else if (maze2.maze[pos[0] - 1][pos[1]] === maze2.objctive) {
+        lvl = 2
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -484,6 +499,7 @@ function drawMaze1() {
         maze2.pos = [pos[0] + 1, pos[1]];
         console.log(maze2.pos);
       }
+      else if (maze2.maze[pos[0] + 1][pos[1]] === maze2.objctive){lvl =3}
       else {
         console.log("Wall ahead!");
       }
@@ -494,6 +510,7 @@ function drawMaze1() {
         maze2.pos = [pos[0], pos[1] - 1];
         console.log(maze2.pos);
       }
+      else if (maze2.maze[pos[0]][pos[1] - 1] === maze2.objctive){lvl =3}
       else {
         console.log("Wall ahead!");
       }
@@ -504,6 +521,7 @@ function drawMaze1() {
         maze2.pos = [pos[0], pos[1] + 1];
         console.log(maze2.pos);
       }
+      else if (maze2.maze[pos[0]][pos[1] + 1] === maze2.objctive){lvl =3}
       else {
         console.log("Wall ahead!");
       }
