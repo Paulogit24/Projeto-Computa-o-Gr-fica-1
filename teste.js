@@ -750,7 +750,7 @@ function correctAnswer() {
     y: 300,
     width: 175,
     height: 100,
-    text: "Start",
+    text: "Continuar",
     textColor: "#ffffff",
     color: "#44ff00ff",
     border: "#054d04ff",
@@ -782,6 +782,53 @@ function correctAnswer() {
     ) {
       lvl = 1;
       console.log("Continue button clicked!");
+      console.log(lvl);
+      return;       
+    }
+  })
+
+  lvl = 2
+
+}
+
+function wrongAnswer() {
+  const returnButton = {
+    x: 250,
+    y: 300,
+    width: 175,
+    height: 100,
+    text: "Volta ao menu",
+    textColor: "#ffffff",
+    color: "#44ff00ff",
+    border: "#054d04ff",
+    borderRadius: 20,
+  };
+
+  const text = "Too Bad";
+  const targetX = 340;
+  const startX = -400; // start off-canvas
+  const targetY = 50;
+  const colorDuration = 1200; // ms per color transition
+  const textColor = "Black"
+
+  const text2 = "Escolheste o ecoponto errado";
+  const targetX2 = 340;
+  const startX2 = 400; // start off-canvas
+  const targetY2 = 50;
+
+  createButton(continueButton);
+
+  canvas.addEventListener("click", function (event) {
+    const mouseX = event.clientX - canvas.offsetLeft;
+    const mouseY = event.clientY - canvas.offsetTop;
+    if (
+      mouseX >= returnButton.x &&
+      mouseX <= returnButton.x + returnButton.width &&
+      mouseY >= returnButton.y &&
+      mouseY <= returnButton.y + returnButton.height
+    ) {
+      lvl = 1;
+      console.log("Return button clicked!");
       console.log(lvl);
       return;       
     }
