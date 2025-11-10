@@ -33,3 +33,29 @@ canvas {
 .button-container button {
   padding: 10px 20px;
 }
+
+.validbtn {
+  background-color: #11f319; /* Green */
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.invalidbtn {
+  background-color: #6d6d6d;
+  border: none;
+  color: rgb(155, 155, 155);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

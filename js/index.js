@@ -2,6 +2,11 @@ const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 const img = new Image();
 
+const MenuBtn = document.getElementById("MenuBtn");
+const Btn1 = document.getElementById("maze1");
+const Btn2 = document.getElementById("maze2");
+const Btn3 = document.getElementById("maze3");
+
 var lvl = 0;
 var Maxlvl = 1;
 let maze1 =  {
@@ -402,6 +407,22 @@ function drawMaze1() {
     ;
     
   }
+  function victory() {
+  clearcanvas();
+  const text = "PARABÉNS!";
+  const targetX = 340;
+  const startX = -400; // start off-canvas
+  const targetY = 50;
+  const colorDuration = 1200; // ms per color transition
+  const textColor = "Black"
+  ctx.fillText(text, targetX, targetY);
+
+  const text2 = "Concluistes todos os labirintos";
+  const targetX2 = 340;
+  const startX2 = 400; // start off-canvas
+  const targetY2 = 50;
+  ctx.fillText(text2, targetX2, 100);
+}
 // botão de start
 function startMenu() {
   const startButton = {
@@ -504,6 +525,18 @@ function startMenu() {
     if (lvl === 3) {
       drawMaze3();
     }
+    if (lvl === 4) {
+      victory();
+    }
+
+    if (Maxlvl >= 2){
+      Btn2.classList.remove("invalidbtn");
+      Btn2.classList.add("validbtn");
+    }
+    if (Maxlvl >= 3){
+      Btn3.classList.remove("invalidbtn");
+      Btn3.classList.add("validbtn");
+    }
 
     requestAnimationFrame(animate);
   }
@@ -594,10 +627,7 @@ startMenu();
         maze2.pos = [pos[0] - 1, pos[1]];
         console.log(maze2.pos);
       }
-      else if (maze2.maze[pos[0] - 1][pos[1]] === maze2.objctive) {
-        lvl = 2,
-        Maxlvl = 3 
-      }
+      else if (maze2.maze[pos[0] - 1][pos[1]] === maze2.objctive) { lvl = 3, Maxlvl = 3}
       else {
         console.log("Wall ahead!");
       }
@@ -646,6 +676,7 @@ startMenu();
         maze3.pos = [pos[0] - 1, pos[1]];
         console.log(maze3.pos);
       }
+      else if (maze3.maze[pos[0] -1 ][pos[1]] === maze3.objctive){lvl =4, Maxlvl = 4 }
       else {
         console.log("Wall ahead!");
       }
@@ -656,6 +687,7 @@ startMenu();
         maze3.pos = [pos[0] + 1, pos[1]];
         console.log(maze3.pos);
       }
+      else if (maze3.maze[pos[0] + 1][pos[1]] === maze3.objctive){lvl =4, Maxlvl = 4 }
       else {
         console.log("Wall ahead!");
       }
@@ -666,6 +698,7 @@ startMenu();
         maze3.pos = [pos[0], pos[1] - 1];
         console.log(maze3.pos);
       }
+      else if (maze3.maze[pos[0]][pos[1] - 1] === maze3.objctive){lvl =4, Maxlvl = 4 }
       else {
         console.log("Wall ahead!");
       }
@@ -676,6 +709,7 @@ startMenu();
         maze3.pos = [pos[0], pos[1] + 1];
         console.log(maze3.pos);
       }
+      else if (maze3.maze[pos[0]][pos[1] + 1] === maze3.objctive){lvl =4, Maxlvl = 4 }
       else {
         console.log("Wall ahead!");
       }
@@ -693,5 +727,29 @@ startMenu();
   }
   )
 
+  
+MenuBtn.addEventListener("click", function (event) {
+  console.log("Menu button clicked!");
+  lvl = 0;})
 
+Btn1.addEventListener("click", function (event) {if (Maxlvl >= 1) {
+  console.log("Maze 1 button clicked!");
+  lvl = 1;}})
+
+Btn2.addEventListener("click", function (event) {if (Maxlvl >= 2) {
+  console.log("Maze 2 button clicked!");
+  lvl = 2;
+}}) 
+
+Btn3.addEventListener("click", function (event) { if (Maxlvl >= 3) {
+  console.log("Maze 3 button clicked!");
+  lvl = 3;
+}})
+
+
+addEventListener("keydown", function (event) {
+  if (event.key === "u" || event.key === "U") {
+    console.log("Unlock all levels");
+    Maxlvl = 3;
+  }})
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp
