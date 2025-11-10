@@ -20,3 +20,16 @@ canvas {
   background-color: #3498db;
   animation: bounce 2s ease-in-out infinite;
 }
+
+.button-container {
+  width: 250px;
+  display: flex;
+  flex-direction: column;   /* Stack buttons vertically */
+  gap: 10px;                /* Space between buttons */
+  margin-right: 20px;       /* Space between buttons and canvas */
+  margin-top: -335px; /* This moves the buttons slightly up */
+}
+
+.button-container button {
+  padding: 10px 20px;
+}
