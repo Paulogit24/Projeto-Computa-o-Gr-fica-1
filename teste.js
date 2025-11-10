@@ -21,7 +21,7 @@ const BackButton = {
 
 var buff = 0;
 var lvl = 0;
-var nlvl = 0;
+var Maxlvl = 1;
 let maze1 =  {
   maze : [
     [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -303,6 +303,7 @@ function drawMaze1() {
       }
     }
     ;
+    
   }
 
   function drawMaze2() {
@@ -371,6 +372,7 @@ function drawMaze1() {
       }
     }
     ;
+    
   }
 
   function drawMaze3() {
@@ -438,6 +440,7 @@ function drawMaze1() {
       }
     }
     ;
+    
   }
   /*
 //function maze1() {
@@ -463,7 +466,7 @@ function drawMaze1() {
     border: "#054d04ff",
     borderRadius: 20,
   };
-  createButton(BackButton);
+  
   // Initial draw
   drawMaze();*/
 
@@ -479,7 +482,8 @@ function drawMaze1() {
         console.log(maze1.pos);
       }
       else if (maze1.maze[pos[0] - 1][pos[1]] === maze1.objctive) {
-        lvl = 2
+        lvl = 2 ,
+        Maxlvl = 2
       }
       else {
         console.log("Wall ahead!");
@@ -491,7 +495,7 @@ function drawMaze1() {
         maze1.pos = [pos[0] + 1, pos[1]];
         console.log(maze1.pos);
       }
-      else if (maze1.maze[pos[0] + 1][pos[1]] === maze1.objctive){lvl =2}
+      else if (maze1.maze[pos[0] + 1][pos[1]] === maze1.objctive){lvl =2, Maxlvl = 2}
       else {
         console.log("Wall ahead!");
       }
@@ -502,7 +506,7 @@ function drawMaze1() {
         maze1.pos = [pos[0], pos[1] - 1];
         console.log(maze1.pos);
       }
-      else if (maze1.maze[pos[0]][pos[1] - 1] === maze1.objctive){lvl =2}
+      else if (maze1.maze[pos[0]][pos[1] - 1] === maze1.objctive){lvl =2, Maxlvl = 2}
       else {
         console.log("Wall ahead!");
       }
@@ -513,7 +517,7 @@ function drawMaze1() {
         maze1.pos = [pos[0], pos[1] + 1];
         console.log(maze1.pos);
       }
-      else if (maze1.maze[pos[0]][pos[1] + 1] === maze1.objctive){lvl =2}
+      else if (maze1.maze[pos[0]][pos[1] + 1] === maze1.objctive){lvl =2, Maxlvl = 2}
       else {
         console.log("Wall ahead!");
       }
@@ -530,7 +534,8 @@ function drawMaze1() {
         console.log(maze2.pos);
       }
       else if (maze2.maze[pos[0] - 1][pos[1]] === maze2.objctive) {
-        lvl = 2
+        lvl = 2,
+        Maxlvl = 3 
       }
       else {
         console.log("Wall ahead!");
@@ -542,7 +547,7 @@ function drawMaze1() {
         maze2.pos = [pos[0] + 1, pos[1]];
         console.log(maze2.pos);
       }
-      else if (maze2.maze[pos[0] + 1][pos[1]] === maze2.objctive){lvl =3}
+      else if (maze2.maze[pos[0] + 1][pos[1]] === maze2.objctive){lvl =3, Maxlvl = 3 }
       else {
         console.log("Wall ahead!");
       }
@@ -553,7 +558,7 @@ function drawMaze1() {
         maze2.pos = [pos[0], pos[1] - 1];
         console.log(maze2.pos);
       }
-      else if (maze2.maze[pos[0]][pos[1] - 1] === maze2.objctive){lvl =3}
+      else if (maze2.maze[pos[0]][pos[1] - 1] === maze2.objctive){lvl =3, Maxlvl = 3 }
       else {
         console.log("Wall ahead!");
       }
@@ -564,7 +569,7 @@ function drawMaze1() {
         maze2.pos = [pos[0], pos[1] + 1];
         console.log(maze2.pos);
       }
-      else if (maze2.maze[pos[0]][pos[1] + 1] === maze2.objctive){lvl =3}
+      else if (maze2.maze[pos[0]][pos[1] + 1] === maze2.objctive){lvl =3, Maxlvl = 3 }
       else {
         console.log("Wall ahead!");
       }
@@ -644,7 +649,6 @@ function drawMaze1() {
       lvl = 0;
       console.log("back button clicked!");
       console.log(lvl);
-      startMenu();
     }
   })
 
@@ -653,7 +657,6 @@ function drawMaze1() {
 
 // botão de start
 function startMenu() {
-  nlvl = 0;
   const startButton = {
     x: 250,
     y: 300,
@@ -793,7 +796,7 @@ function lvl1() {
     borderRadius: 20,
   };
 
-  createButton(BackButton);
+  
   maze1();
 
   console.log("lvl1");
