@@ -6,6 +6,18 @@ function clearcanvas() {
 
 const img = new Image();
 
+const BackButton = {
+  x: 550,
+  y: 300,
+  width: 100,
+  height: 100,
+  text: "menu",
+  textColor: "#ffffff",
+  color: "#44ff00ff",
+  border: "#054d04ff",
+  borderRadius: 20,
+};
+
 
 var buff = 0;
 var lvl = 0;
@@ -27,6 +39,7 @@ let maze1 =  {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], ],
   pos : [0,0], // starting position
   objctive : 3,
+  trash: "/img/LixoAzul.webp",
   };
 let maze2 = {
   maze :[
@@ -45,6 +58,7 @@ let maze2 = {
   [5, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 4],],
   pos : [0,0], // starting position
   objctive : 4,
+  trash: "/img/LixoAmarelo.jpg",
 };
 
 let maze3 ={ 
@@ -64,6 +78,7 @@ let maze3 ={
   [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
   pos : [0,0], // starting position;
   objctive : 5,
+  trash: "/img/LixoVerde.jpg",
 }
 
 function resetlvl(level) {
@@ -85,6 +100,7 @@ function resetlvl(level) {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], ],
   pos : [0,0], // starting position
   objctive: 3,
+  trash: "/img/LixoAzul.webp",
   };}
 
   else if (level === 2){
@@ -104,7 +120,8 @@ function resetlvl(level) {
   [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
   [5, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 4],],
   pos : [0,0], // starting position
-  objctive: 4,
+  objctive : 4,
+  trash: "/img/LixoAmarelo.jpg",
 };}
 
   else if (level === 3){
@@ -125,6 +142,7 @@ function resetlvl(level) {
   [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
   pos : [0,0], // starting position;
   objctive: 5,
+  trash: "/img/LixoVerde.jpg",
 }
 }
 
@@ -145,7 +163,9 @@ else{
     [0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
     [4, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], ],
-  pos : [0,0] // starting position
+  pos : [0,0], // starting position
+  objctive: 3,
+  trash: "/img/LixoAzul.webp",
   }
 
 maze2 = {
@@ -163,7 +183,9 @@ maze2 = {
   [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
   [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
   [5, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 4],],
-  pos : [0,0] // starting position
+  pos : [0,0], // starting position
+  objctive : 4,
+  trash: "/img/LixoAmarelo.jpg",
 }
 
   maze3 ={ 
@@ -181,7 +203,9 @@ maze2 = {
   [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
   [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
   [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
-  pos : [0,0] // starting position;
+  pos : [0,0], // starting position;
+  objctive: 5,
+  trash: "/img/LixoVerde.jpg",
 }
 }
 }
@@ -236,6 +260,12 @@ function drawMaze1() {
         // x and y are maze grid coordinates multiplied by cell size
         ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
       };
+      const trash = new Image();
+      trash.src = maze1.trash;
+      trash.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(trash, cellSize,  cellSize, cellSize, cellSize);
+      };
     for (let row = 0; row < maze1.maze.length; row++) {
       for (let col = 0; col < maze1.maze[row].length; col++) {
         if (maze1.maze[row][col] === 0) {
@@ -250,8 +280,8 @@ function drawMaze1() {
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 2) {
           ctx.fillStyle = "grey";
-          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "grey";
+          ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 3) {
           ctx.fillStyle = "blue";
@@ -297,6 +327,13 @@ function drawMaze1() {
         // x and y are maze grid coordinates multiplied by cell size
         ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
       };
+       const trash = new Image();
+      trash.src = maze2.trash;
+      trash.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(trash, cellSize,  cellSize, cellSize, cellSize);
+      };
+      
     for (let row = 0; row < maze2.maze.length; row++) {
       for (let col = 0; col < maze2.maze[row].length; col++) {
         if (maze2.maze[row][col] === 0) {
@@ -311,8 +348,8 @@ function drawMaze1() {
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 2) {
           ctx.fillStyle = "grey";
-          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "grey";
+          ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 3) {
           ctx.fillStyle = "blue";
@@ -358,6 +395,12 @@ function drawMaze1() {
         // x and y are maze grid coordinates multiplied by cell size
         ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
       };
+       const trash = new Image();
+      trash.src = maze3.trash;
+      trash.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(trash, cellSize,  cellSize, cellSize, cellSize);
+      };
     for (let row = 0; row < maze3.maze.length; row++) {
       for (let col = 0; col < maze3.maze[row].length; col++) {
         if (maze3.maze[row][col] === 0) {
@@ -372,8 +415,8 @@ function drawMaze1() {
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 2) {
           ctx.fillStyle = "grey";
-          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "grey";
+          ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 3) {
           ctx.fillStyle = "blue";
@@ -426,7 +469,7 @@ function drawMaze1() {
 
 
   //controls
-  addEventListener("keyup", function (event) {
+  addEventListener("keydown", function (event) {
     if (lvl === 1) {
     let pos = maze1.pos;
     if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
