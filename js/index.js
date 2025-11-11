@@ -2,6 +2,7 @@ const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 const img = new Image();
 
+const ResetBtn = document.getElementById("Reset");
 const MenuBtn = document.getElementById("MenuBtn");
 const Btn1 = document.getElementById("maze1");
 const Btn2 = document.getElementById("maze2");
@@ -93,7 +94,19 @@ function resetlvl(level) {
   else if (level === 2){
     maze2 = {
   maze :[
-5],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
+    [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
+    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
+    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+    [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
+    [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+    [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+    [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
+    [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],],
   pos : [0,0], // starting position
   objctive : 4,
   trash: "/img/LixoAmarelo.jpg",
@@ -145,10 +158,22 @@ else{
 
 maze2 = {
   maze :[
-5],
-  pos : [0,0], // starting position
-  objctive : 4,
-  trash: "/img/LixoAmarelo.jpg",
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
+  [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
+  [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
+  [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+  [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
+  [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],],
+pos : [0,0], // starting position
+objctive : 4,
+trash: "/img/LixoAmarelo.jpg",
 }
 
   maze3 ={ 
@@ -576,9 +601,10 @@ startMenu();
         console.log(maze1.pos);
       }
       else if (maze1.maze[pos[0] - 1][pos[1]] === maze1.objctive) {
-        lvl = 2 ,
-        Maxlvl = 2
-      }
+        resetlvl(1);
+        lvl = 2;
+        if (Maxlvl < 2){Maxlvl = 2}
+        }
       else {
         console.log("Wall ahead!");
       }
@@ -589,7 +615,11 @@ startMenu();
         maze1.pos = [pos[0] + 1, pos[1]];
         console.log(maze1.pos);
       }
-      else if (maze1.maze[pos[0] + 1][pos[1]] === maze1.objctive){lvl =2, Maxlvl = 2}
+      else if (maze1.maze[pos[0] + 1][pos[1]] === maze1.objctive){
+        resetlvl(1);
+        lvl = 2;
+        if (Maxlvl < 2){Maxlvl = 2}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -600,7 +630,10 @@ startMenu();
         maze1.pos = [pos[0], pos[1] - 1];
         console.log(maze1.pos);
       }
-      else if (maze1.maze[pos[0]][pos[1] - 1] === maze1.objctive){lvl =2, Maxlvl = 2}
+      else if (maze1.maze[pos[0]][pos[1] - 1] === maze1.objctive){
+        resetlvl(1);
+        lvl = 2;
+        if (Maxlvl < 2){Maxlvl = 2}}
       else {
         console.log("Wall ahead!");
       }
@@ -611,7 +644,11 @@ startMenu();
         maze1.pos = [pos[0], pos[1] + 1];
         console.log(maze1.pos);
       }
-      else if (maze1.maze[pos[0]][pos[1] + 1] === maze1.objctive){lvl =2, Maxlvl = 2}
+      else if (maze1.maze[pos[0]][pos[1] + 1] === maze1.objctive){
+        resetlvl(1);
+        lvl = 2;
+        if (Maxlvl < 2){Maxlvl = 2}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -627,7 +664,11 @@ startMenu();
         maze2.pos = [pos[0] - 1, pos[1]];
         console.log(maze2.pos);
       }
-      else if (maze2.maze[pos[0] - 1][pos[1]] === maze2.objctive) { lvl = 3, Maxlvl = 3}
+      else if (maze2.maze[pos[0] - 1][pos[1]] === maze2.objctive) {
+      resetlvl(2)
+      lvl = 3;
+      if (Maxlvl < 3) {Maxlvl = 3}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -638,7 +679,11 @@ startMenu();
         maze2.pos = [pos[0] + 1, pos[1]];
         console.log(maze2.pos);
       }
-      else if (maze2.maze[pos[0] + 1][pos[1]] === maze2.objctive){lvl =3, Maxlvl = 3 }
+      else if (maze2.maze[pos[0] + 1][pos[1]] === maze2.objctive){
+      resetlvl(2)
+      lvl = 3;
+      if (Maxlvl < 3) {Maxlvl = 3}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -649,7 +694,11 @@ startMenu();
         maze2.pos = [pos[0], pos[1] - 1];
         console.log(maze2.pos);
       }
-      else if (maze2.maze[pos[0]][pos[1] - 1] === maze2.objctive){lvl =3, Maxlvl = 3 }
+      else if (maze2.maze[pos[0]][pos[1] - 1] === maze2.objctive){
+      resetlvl(2)
+      lvl = 3;
+      if (Maxlvl < 3) {Maxlvl = 3}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -660,7 +709,11 @@ startMenu();
         maze2.pos = [pos[0], pos[1] + 1];
         console.log(maze2.pos);
       }
-      else if (maze2.maze[pos[0]][pos[1] + 1] === maze2.objctive){lvl =3, Maxlvl = 3 }
+      else if (maze2.maze[pos[0]][pos[1] + 1] === maze2.objctive){
+      resetlvl(2)
+      lvl = 3;
+      if (Maxlvl < 3) {Maxlvl = 3}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -676,7 +729,11 @@ startMenu();
         maze3.pos = [pos[0] - 1, pos[1]];
         console.log(maze3.pos);
       }
-      else if (maze3.maze[pos[0] -1 ][pos[1]] === maze3.objctive){lvl =4, Maxlvl = 4 }
+      else if (maze3.maze[pos[0] -1 ][pos[1]] === maze3.objctive){
+        resetlvl(3);
+        lvl =4;
+        if (Maxlvl < 4 ){Maxlvl = 4}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -687,7 +744,11 @@ startMenu();
         maze3.pos = [pos[0] + 1, pos[1]];
         console.log(maze3.pos);
       }
-      else if (maze3.maze[pos[0] + 1][pos[1]] === maze3.objctive){lvl =4, Maxlvl = 4 }
+      else if (maze3.maze[pos[0] + 1][pos[1]] === maze3.objctive){
+        resetlvl(3);
+        lvl =4;
+        if (Maxlvl < 4 ){Maxlvl = 4}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -698,7 +759,11 @@ startMenu();
         maze3.pos = [pos[0], pos[1] - 1];
         console.log(maze3.pos);
       }
-      else if (maze3.maze[pos[0]][pos[1] - 1] === maze3.objctive){lvl =4, Maxlvl = 4 }
+      else if (maze3.maze[pos[0]][pos[1] - 1] === maze3.objctive){
+        resetlvl(3);
+        lvl =4;
+        if (Maxlvl < 4 ){Maxlvl = 4}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -709,7 +774,11 @@ startMenu();
         maze3.pos = [pos[0], pos[1] + 1];
         console.log(maze3.pos);
       }
-      else if (maze3.maze[pos[0]][pos[1] + 1] === maze3.objctive){lvl =4, Maxlvl = 4 }
+      else if (maze3.maze[pos[0]][pos[1] + 1] === maze3.objctive){
+        resetlvl(3);
+        lvl =4;
+        if (Maxlvl < 4 ){Maxlvl = 4}
+      }
       else {
         console.log("Wall ahead!");
       }
@@ -746,10 +815,21 @@ Btn3.addEventListener("click", function (event) { if (Maxlvl >= 3) {
   lvl = 3;
 }})
 
+ResetBtn.addEventListener("click", function (event) {
+  console.log("Reset button clicked!");
+  resetlvl(lvl);
+})
 
 addEventListener("keydown", function (event) {
   if (event.key === "u" || event.key === "U") {
     console.log("Unlock all levels");
     Maxlvl = 3;
+  }
+if (event.key === "l" || event.key === "L") {
+    console.log(Maxlvl);
+    console.log(lvl);
+    console.log("maze1",maze1);
+    console.log("maze2",maze2);
+    console.log("maze3",maze3);
   }})
 // go get the text here https://www.w3schools.com/jsref/canvas_filltext.asp

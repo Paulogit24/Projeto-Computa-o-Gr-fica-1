@@ -29,9 +29,14 @@ canvas {
   margin-right: 20px;       /* Space between buttons and canvas */
   margin-top: -335px; /* This moves the buttons slightly up */
 }
+.button-container{
+     top: 100px;
+}
+
 
 .button-container button {
   padding: 10px 20px;
+  top: 100px;
 }
 
 .validbtn {
