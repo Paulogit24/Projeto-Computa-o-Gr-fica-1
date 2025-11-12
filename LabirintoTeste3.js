@@ -6,6 +6,7 @@ canvas.width = 600;
 canvas.height = 600;
 
 // Define the maze grid (0 = wall, 1 = path)
+ctx.strokeStyle = "#913c04ff"
 let maze = [
   [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
   [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],

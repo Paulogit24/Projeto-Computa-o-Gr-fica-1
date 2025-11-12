@@ -259,17 +259,17 @@ function drawMaze1() {
     for (let row = 0; row < maze1.maze.length; row++) {
       for (let col = 0; col < maze1.maze[row].length; col++) {
         if (maze1.maze[row][col] === 0) {
-          ctx.fillStyle = "black";
+          ctx.fillStyle = "#098f07ff"; //mark1
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "black";
+          ctx.strokeStyle = "#098f07ff"; //mark1
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 1) {
-          ctx.fillStyle = "white";
+          ctx.fillStyle = "#3498db";  //mark2
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "white";
+          ctx.strokeStyle = "#3498db";  //mark2
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 2) {
-          ctx.fillStyle = "grey";
+          ctx.fillStyle = "#3498db";
           ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
           ctx.strokeStyle = "#ffffffff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
@@ -328,17 +328,17 @@ function drawMaze1() {
     for (let row = 0; row < maze2.maze.length; row++) {
       for (let col = 0; col < maze2.maze[row].length; col++) {
         if (maze2.maze[row][col] === 0) {
-          ctx.fillStyle = "black";
+          ctx.fillStyle = "#098f07ff"; //mark1
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "black";
+          ctx.strokeStyle = "#098f07ff"; //mark1
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 1) {
-          ctx.fillStyle = "white";
+          ctx.fillStyle = "#3498db";  //mark2
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "white";
+          ctx.strokeStyle = "#3498db";  //mark2
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 2) {
-          ctx.fillStyle = "grey";
+          ctx.fillStyle = "#3498db";
           ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
           ctx.strokeStyle = "#ffffffff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
@@ -396,17 +396,17 @@ function drawMaze1() {
     for (let row = 0; row < maze3.maze.length; row++) {
       for (let col = 0; col < maze3.maze[row].length; col++) {
         if (maze3.maze[row][col] === 0) {
-          ctx.fillStyle = "black";
+          ctx.fillStyle = "#098f07ff"; //mark1
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "black";
+          ctx.strokeStyle = "#098f07ff"; //mark1
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 1) {
-          ctx.fillStyle = "white";
+          ctx.fillStyle = "#3498db";  //mark2
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "white";
+          ctx.strokeStyle = "#3498db";  //mark2
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 2) {
-          ctx.fillStyle = "grey";
+          ctx.fillStyle = "#3498db";
           ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
           ctx.strokeStyle = "#ffffffff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
@@ -435,18 +435,48 @@ function drawMaze1() {
   function victory() {
   clearcanvas();
   const text = "PARABÉNS!";
-  const targetX = 340;
+  const targetX = 325;
   const startX = -400; // start off-canvas
   const targetY = 50;
   const colorDuration = 1200; // ms per color transition
   const textColor = "Black"
-  ctx.fillText(text, targetX, targetY);
+  ctx.textAlign= "center"
+  ctx.font= "30px Arial"
+  ctx.fillText(text, targetX, targetY, 300);
 
   const text2 = "Concluistes todos os labirintos";
-  const targetX2 = 340;
+  const targetX2 = 325;
   const startX2 = 400; // start off-canvas
   const targetY2 = 50;
+  
+  ctx.textAlign= "center"
+  ctx.fillStyle= "black" 
   ctx.fillText(text2, targetX2, 100);
+  
+
+  ctx.fillStyle = "#098f07ff"; //ground
+      ctx.fillRect(0, canvas.height - 50, canvas.width, 50);
+
+      ctx.fillStyle = "#6e4900ff"     //tree trunk
+      ctx.fillRect(70, canvas.height - 200, 50, 170);
+      ctx.fillRect(510, canvas.height - 200, 50, 170);
+      
+      ctx.fillStyle = "#07da27ff"     
+      
+      ctx.beginPath();
+      ctx.arc(95, 385, 70, 0, 2 * Math.PI);
+      
+      ctx.strokeStyle = "#07da27ff"
+      ctx.stroke()
+      ctx.fillStyle = "#07da27ff"
+      ctx.fill()
+
+      ctx.beginPath();
+      ctx.arc(535, 385, 70, 0, 2 * Math.PI);
+      ctx.strokeStyle = "#07da27ff"
+      ctx.stroke()
+      ctx.fillStyle = "#07da27ff"
+      ctx.fill()
 }
 // botão de start
 function startMenu() {
@@ -537,6 +567,43 @@ function startMenu() {
       ctx.textAlign = "center";
       ctx.fillText(text2, targetX2, 100); // Position it below the title
 
+      ctx.fillStyle = "#098f07ff"; //ground
+      ctx.fillRect(0, canvas.height - 50, canvas.width, 50);
+      /*
+      ctx.fillStyle = "#6e4900ff"     //tree trunk
+      ctx.fillRect(70, canvas.height - 200, 50, 170);
+      ctx.fillRect(510, canvas.height - 200, 50, 170);
+      
+      ctx.fillStyle = "#07da27ff"     
+      
+      ctx.beginPath();
+      ctx.arc(95, 385, 70, 0, 2 * Math.PI);
+      
+      ctx.strokeStyle = "#07da27ff"
+      ctx.stroke()
+      ctx.fillStyle = "#07da27ff"
+      ctx.fill()
+
+      ctx.beginPath();
+      ctx.arc(535, 385, 70, 0, 2 * Math.PI);
+      ctx.strokeStyle = "#07da27ff"
+      ctx.stroke()
+      ctx.fillStyle = "#07da27ff"
+      ctx.fill()
+      */
+      //draw contentor and bush image
+      const BushImg = new Image();
+      BushImg.src = "/img/bush.png"
+      ctx.drawImage(BushImg, 20, 430, 200, 200);
+      ctx.drawImage(BushImg, 430, 430, 200, 200);
+
+      const conteinerImg = new Image();
+      conteinerImg.src = "/img/lixomenu.png"
+      ctx.drawImage(conteinerImg, 125, 510, 400, 133);
+
+
+      
+      //ctx.stroke();
 
     }
 
@@ -792,6 +859,7 @@ startMenu();
     if (event.key === "1" ) { lvl = 1; return; }
     if (event.key === "2" ) { lvl = 2; return; }
     if (event.key === "3" ) { lvl = 3; return; }
+    if (event.key === "4" ) { lvl = 4; return; }
     if (event.key === "t" || event.key === "T" || event.key === "esc") { lvl = 0; return; }
   }
   )

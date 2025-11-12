@@ -269,9 +269,9 @@ function drawMaze1() {
     for (let row = 0; row < maze1.maze.length; row++) {
       for (let col = 0; col < maze1.maze[row].length; col++) {
         if (maze1.maze[row][col] === 0) {
-          ctx.fillStyle = "black";
+          ctx.fillStyle = "blue";
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "black";
+          ctx.strokeStyle = "blue";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 1) {
           ctx.fillStyle = "white";
@@ -338,9 +338,9 @@ function drawMaze1() {
     for (let row = 0; row < maze2.maze.length; row++) {
       for (let col = 0; col < maze2.maze[row].length; col++) {
         if (maze2.maze[row][col] === 0) {
-          ctx.fillStyle = "black";
+          ctx.fillStyle = "blue";
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "black";
+          ctx.strokeStyle = "blue";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 1) {
           ctx.fillStyle = "white";
@@ -406,9 +406,9 @@ function drawMaze1() {
     for (let row = 0; row < maze3.maze.length; row++) {
       for (let col = 0; col < maze3.maze[row].length; col++) {
         if (maze3.maze[row][col] === 0) {
-          ctx.fillStyle = "black";
+          ctx.fillStyle = "blue";
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "black";
+          ctx.strokeStyle = "blue";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 1) {
           ctx.fillStyle = "white";
