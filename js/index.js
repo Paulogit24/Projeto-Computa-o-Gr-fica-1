@@ -441,7 +441,7 @@ function drawMaze1() {
   const startX = -400; // start off-canvas
   const targetY = 50;
   const colorDuration = 1200; // ms per color transition
-  const textColor = "Black";
+  ctx.fillStyle = "Black";
   ctx.textAlign = "center";
   ctx.font = "30px Arial";
   ctx.fillText(text, targetX, targetY, 300);
@@ -462,6 +462,11 @@ function drawMaze1() {
   BushImg.src = "/img/bush.png";
   ctx.drawImage(BushImg, 20, 430, 200, 200);
   ctx.drawImage(BushImg, 430, 430, 200, 200);
+}
+
+function restart() {
+  console.log("reiniciar func")
+  fail = false;
 }
 // botão de start
 function startMenu() {
@@ -515,8 +520,35 @@ function startMenu() {
   function animate(timestamp) {
     if (!startTime) startTime = timestamp;
     const elapsed = timestamp - startTime;
+    // FAIL SCREEN
+    if (fail === true) {
+      console.log("falhou");
+      ctx.fillStyle = "red";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    if (lvl === 0) {
+      let textfail = "WRONG BIN DUMBASS!!";
+      let targetXfail = 325;
+      let targetYfail = 50;
+      ctx.fillStyle = "Black";
+      ctx.textAlign = "center";
+      ctx.font = "30px Arial";
+      ctx.fillText(textfail, targetXfail, targetYfail, 300)
+
+      const againButton = {
+        x: 225,
+        y: 300,
+        width: 175,
+        height: 100,
+        text: "try again",
+        textColor: "#ffffff",
+        color: "#33ff00ff",
+        border: "#000000ff",
+        borderRadius: 20,
+      };
+      createButton(againButton);
+    }
+    else {
+      if (lvl === 0) {
       // keep text fixed in the original position
       const x = targetX;
 
@@ -558,28 +590,7 @@ function startMenu() {
 
       ctx.fillStyle = "#098f07ff"; //ground
       ctx.fillRect(0, canvas.height - 50, canvas.width, 50);
-      /*
-      ctx.fillStyle = "#6e4900ff"     //tree trunk
-      ctx.fillRect(70, canvas.height - 200, 50, 170);
-      ctx.fillRect(510, canvas.height - 200, 50, 170);
       
-      ctx.fillStyle = "#07da27ff"     
-      
-      ctx.beginPath();
-      ctx.arc(95, 385, 70, 0, 2 * Math.PI);
-      
-      ctx.strokeStyle = "#07da27ff"
-      ctx.stroke()
-      ctx.fillStyle = "#07da27ff"
-      ctx.fill()
-
-      ctx.beginPath();
-      ctx.arc(535, 385, 70, 0, 2 * Math.PI);
-      ctx.strokeStyle = "#07da27ff"
-      ctx.stroke()
-      ctx.fillStyle = "#07da27ff"
-      ctx.fill()
-      */
       //draw contentor and bush image
       const BushImg = new Image();
       BushImg.src = "/img/bush.png";
@@ -615,7 +626,7 @@ function startMenu() {
       Btn3.classList.remove("invalidbtn");
       Btn3.classList.add("validbtn");
     }
-
+}
     requestAnimationFrame(animate);
   }
   requestAnimationFrame(animate);
@@ -631,11 +642,15 @@ function startMenu() {
       mouseX <= startButton.x + startButton.width &&
       mouseY >= startButton.y &&
       mouseY <= startButton.y + startButton.height
-    ) {
-      lvl = 1;
+    ) {if (lvl === 0)
+      {lvl = 1;
       console.log("Start button clicked!");
       console.log(lvl);
-      return;
+      return;}
+
+      if (fail === true) {
+        fail = false;
+      }
     }
   });
 }
@@ -643,6 +658,7 @@ startMenu();
 
 //controls
 addEventListener("keydown", function (event) {
+  if (fail === false) {
   if (lvl === 1) {
     let pos = maze1.pos;
     if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
@@ -656,7 +672,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 2) {
           Maxlvl = 2;
         }
-      } else {
+      }else if (maze1.maze[pos[0] - 1][pos[1]] === 3 || maze1.maze[pos[0] - 1][pos[1]] === 4 || maze1.maze[pos[0] - 1][pos[1]] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -671,7 +691,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 2) {
           Maxlvl = 2;
         }
-      } else {
+      }else if (maze1.maze[pos[0] + 1][pos[1]] === 3 || maze1.maze[pos[0] + 1][pos[1]] === 4 || maze1.maze[pos[0] + 1][pos[1]] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -686,7 +710,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 2) {
           Maxlvl = 2;
         }
-      } else {
+      }else if (maze1.maze[pos[0]][pos[1] - 1] === 3 || maze1.maze[pos[0]][pos[1] - 1] === 4 || maze1.maze[pos[0]][pos[1] - 1] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -701,7 +729,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 2) {
           Maxlvl = 2;
         }
-      } else {
+      }else if (maze1.maze[pos[0]][pos[1] + 1] === 3 || maze1.maze[pos[0]][pos[1] + 1] === 4 || maze1.maze[pos[0]][pos[1] + 1] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -722,7 +754,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 3) {
           Maxlvl = 3;
         }
-      } else {
+      }else if (maze2.maze[pos[0] - 1][pos[1]] === 3 || maze2.maze[pos[0] - 1][pos[1]] === 4 || maze2.maze[pos[0] - 1][pos[1]] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -737,7 +773,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 3) {
           Maxlvl = 3;
         }
-      } else {
+      }else if (maze2.maze[pos[0] + 1][pos[1]] === 3 || maze2.maze[pos[0] + 1][pos[1]] === 4 || maze2.maze[pos[0] + 1][pos[1]] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -752,7 +792,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 3) {
           Maxlvl = 3;
         }
-      } else {
+      }else if (maze2.maze[pos[0]][pos[1] - 1] === 3 || maze2.maze[pos[0]][pos[1] - 1] === 4 || maze2.maze[pos[0]][pos[1] - 1] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -767,7 +811,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 3) {
           Maxlvl = 3;
         }
-      } else {
+      }else if (maze2.maze[pos[0]][pos[1] + 1] === 3 || maze2.maze[pos[0]][pos[1] + 1] === 4 || maze2.maze[pos[0]][pos[1] + 1] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -788,7 +836,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 4) {
           Maxlvl = 4;
         }
-      } else {
+      }else if (maze3.maze[pos[0] - 1][pos[1]] === 3 || maze3.maze[pos[0] - 1][pos[1]] === 4 || maze3.maze[pos[0] - 1][pos[1]] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -803,7 +855,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 4) {
           Maxlvl = 4;
         }
-      } else {
+      }else if (maze3.maze[pos[0] + 1][pos[1]] === 3 || maze3.maze[pos[0] + 1][pos[1]] === 4 || maze3.maze[pos[0] + 1][pos[1]] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -818,7 +874,11 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 4) {
           Maxlvl = 4;
         }
-      } else {
+      }else if (maze3.maze[pos[0]][pos[1] - 1] === 3 || maze3.maze[pos[0]][pos[1] - 1] === 4 || maze3.maze[pos[0]][pos[1] - 1] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
@@ -833,14 +893,18 @@ addEventListener("keydown", function (event) {
         if (Maxlvl < 4) {
           Maxlvl = 4;
         }
-      } else {
+      }else if (maze3.maze[pos[0]][pos[1] + 1] === 3 || maze3.maze[pos[0]][pos[1] + 1] === 4 || maze3.maze[pos[0]][pos[1] + 1] === 5){resetlvl(lvl);
+        console.log("falhou") ;
+        fail = true;
+      }
+        else {
         console.log("Wall ahead!");
       }
     }
   } else {
     console.log("not lvl 3");
   }
-
+  }
   if (event.key === "r" || event.key === "R") {
     resetlvl(lvl);
   }
@@ -864,6 +928,8 @@ addEventListener("keydown", function (event) {
     lvl = 0;
     return;
   }
+
+  if (event.key === "f" || event.key === "F") { fail = true; }
 });
 
 MenuBtn.addEventListener("click", function (event) {
