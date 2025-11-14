@@ -436,7 +436,7 @@ function drawMaze1() {
   }
   function victory() {
   clearcanvas();
-  const text = "PARABÉNS!";
+  const text = "CONGRATULATIONS!!!";
   const targetX = 325;
   const startX = -400; // start off-canvas
   const targetY = 50;
@@ -446,7 +446,7 @@ function drawMaze1() {
   ctx.font = "30px Arial";
   ctx.fillText(text, targetX, targetY, 300);
 
-  const text2 = "Concluistes todos os labirintos";
+  const text2 = "YOU CLEARED ALL THE MAZES!!";
   const targetX2 = 325;
   const startX2 = 400; // start off-canvas
   const targetY2 = 50;
