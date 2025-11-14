@@ -96,3 +96,8 @@ canvas {
   -o-animation: rotating 2s linear infinite;
   animation: rotating 2s linear infinite;
 }
+
+.validbtn:hover {
+  background-color: #cbf414; /* Darker green on hover */
+  font-weight: bold;
+}
