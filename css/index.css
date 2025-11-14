@@ -2,19 +2,12 @@ canvas {
   border: 2px solid black;
   display: block;
   margin: 0 auto;
-  background-color: black;
+  background-color: #85f9ff;
 }
-
-canvas {
-  border: 2px solid black;
-  display: block;
-  margin: 0 auto;
-  background-color: #85F9FF;
-}
-
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -25,7 +18,7 @@ canvas {
 .repeat-bounce {
   width: 100px;
   height: 100px;
- 
+
   background-color: #3498db;
   animation: bounce 2s ease-in-out infinite;
 }
@@ -33,15 +26,15 @@ canvas {
 .button-container {
   width: 250px;
   display: flex;
-  flex-direction: column;   /* Stack buttons vertically */
-  gap: 10px;                /* Space between buttons */
-  margin-right: 20px;       /* Space between buttons and canvas */
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Space between buttons */
+  margin-right: 20px; /* Space between buttons and canvas */
   margin-top: -335px; /* This moves the buttons slightly up */
 }
-.button-container{
-     top: 100px;
-}
 
+.button-container {
+  top: 100px;
+}
 
 .button-container button {
   padding: 10px 20px;
@@ -72,4 +65,34 @@ canvas {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    /* transform: scale(1); */
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+    /* transform: scale(2); */
+  }
+}
+
+#spin-cycle {
+  position: absolute;
+  top: 210px;
+  left: 90px;
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
 }

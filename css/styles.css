@@ -13,3 +13,8 @@
   background-color: #3498db;
   animation: bounce 2s ease-in-out infinite;
 }
+
+
+.spin-recycle {
+  animation: spin 2s linear infinite;
+}
