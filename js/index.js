@@ -46,7 +46,7 @@ let maze2 = {
   [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],],
   pos : [0,0], // starting position
   objctive : 4,
-  trash: "/img/LixoAmarelo.jpg",
+  trash: "/img/LixoAmarelo.png",
 };
 
 let maze3 ={ 
@@ -66,7 +66,7 @@ let maze3 ={
   [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
   pos : [0,0], // starting position;
   objctive : 5,
-  trash: "/img/LixoVerde.jpg",
+  trash: "/img/LixoVerde.png",
 }
 
 function resetlvl(level) {
@@ -109,7 +109,7 @@ function resetlvl(level) {
     [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],],
   pos : [0,0], // starting position
   objctive : 4,
-  trash: "/img/LixoAmarelo.jpg",
+  trash: "/img/LixoAmarelo.png",
 };}
 
   else if (level === 3){
@@ -130,7 +130,7 @@ function resetlvl(level) {
   [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
   pos : [0,0], // starting position;
   objctive: 5,
-  trash: "/img/LixoVerde.jpg",
+  trash: "/img/LixoVerde.png",
 }
 }
 
@@ -173,7 +173,7 @@ maze2 = {
   [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],],
 pos : [0,0], // starting position
 objctive : 4,
-trash: "/img/LixoAmarelo.jpg",
+trash: "/img/LixoAmarelo.png",
 }
 
   maze3 ={ 
@@ -193,7 +193,7 @@ trash: "/img/LixoAmarelo.jpg",
   [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
   pos : [0,0], // starting position;
   objctive: 5,
-  trash: "/img/LixoVerde.jpg",
+  trash: "/img/LixoVerde.png",
 }
 }
 }
@@ -226,7 +226,8 @@ function createButton(button) {
   ctx.stroke();
 }
 function clearcanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#85F9FF";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 function drawMaze1() {
   clearcanvas()
@@ -245,7 +246,7 @@ function drawMaze1() {
         ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
       };
       const img3 = new Image();
-      img3.src = "/img/green.png";
+      img3.src = "/img/green.avif";
       img3.onload = function () {
         // x and y are maze grid coordinates multiplied by cell size
         ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
@@ -259,34 +260,34 @@ function drawMaze1() {
     for (let row = 0; row < maze1.maze.length; row++) {
       for (let col = 0; col < maze1.maze[row].length; col++) {
         if (maze1.maze[row][col] === 0) {
-          ctx.fillStyle = "#098f07ff"; //mark1
+          ctx.fillStyle = "#85F9FF"; //mark1
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#098f07ff"; //mark1
+          ctx.strokeStyle = "#85F9FF"; //mark1
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 1) {
-          ctx.fillStyle = "#3498db";  //mark2
+          ctx.fillStyle = "#098f07ff";  //mark2
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#3498db";  //mark2
+          ctx.strokeStyle = "#098f07ff";  //mark2
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 2) {
-          ctx.fillStyle = "#3498db";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 3) {
-          ctx.fillStyle = "blue";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 4) {
-          ctx.fillStyle = "yellow";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze1.maze[row][col] === 5) {
-          ctx.fillStyle = "green";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         }
 
@@ -313,7 +314,7 @@ function drawMaze1() {
         ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
       };
       const img3 = new Image();
-      img3.src = "/img/green.png";
+      img3.src = "/img/green.avif";
       img3.onload = function () {
         // x and y are maze grid coordinates multiplied by cell size
         ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
@@ -328,34 +329,34 @@ function drawMaze1() {
     for (let row = 0; row < maze2.maze.length; row++) {
       for (let col = 0; col < maze2.maze[row].length; col++) {
         if (maze2.maze[row][col] === 0) {
-          ctx.fillStyle = "#098f07ff"; //mark1
+          ctx.fillStyle = "#85F9FF"; //mark1
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#098f07ff"; //mark1
+          ctx.strokeStyle = "#85F9FF"; //mark1
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 1) {
-          ctx.fillStyle = "#3498db";  //mark2
+          ctx.fillStyle = "#098f07ff";  //mark2
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#3498db";  //mark2
+          ctx.strokeStyle = "#098f07ff";  //mark2
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 2) {
-          ctx.fillStyle = "#3498db";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 3) {
-          ctx.fillStyle = "blue";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 4) {
-          ctx.fillStyle = "yellow";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze2.maze[row][col] === 5) {
-          ctx.fillStyle = "green";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         }
 
@@ -382,7 +383,7 @@ function drawMaze1() {
         ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
       };
       const img3 = new Image();
-      img3.src = "/img/green.png";
+      img3.src = "/img/green.avif";
       img3.onload = function () {
         // x and y are maze grid coordinates multiplied by cell size
         ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
@@ -396,34 +397,34 @@ function drawMaze1() {
     for (let row = 0; row < maze3.maze.length; row++) {
       for (let col = 0; col < maze3.maze[row].length; col++) {
         if (maze3.maze[row][col] === 0) {
-          ctx.fillStyle = "#098f07ff"; //mark1
+          ctx.fillStyle = "#85F9FF"; //mark1
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#098f07ff"; //mark1
+          ctx.strokeStyle = "#85F9FF"; //mark1
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 1) {
-          ctx.fillStyle = "#3498db";  //mark2
+          ctx.fillStyle = "#098f07ff";  //mark2
           ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#3498db";  //mark2
+          ctx.strokeStyle = "#098f07ff";  //mark2
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 2) {
-          ctx.fillStyle = "#3498db";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 3) {
-          ctx.fillStyle = "blue";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 4) {
-          ctx.fillStyle = "yellow";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         } else if (maze3.maze[row][col] === 5) {
-          ctx.fillStyle = "green";
+          ctx.fillStyle = "#098f07ff";
           ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
-          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeStyle = "#098f07ff";
           ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
         }
 
@@ -480,6 +481,7 @@ function drawMaze1() {
 }
 // botão de start
 function startMenu() {
+  clearcanvas();
   const startButton = {
     x: 225,
     y: 300,

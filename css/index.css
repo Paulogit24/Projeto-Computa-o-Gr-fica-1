@@ -2,8 +2,16 @@ canvas {
   border: 2px solid black;
   display: block;
   margin: 0 auto;
-  background-color: rgb(122, 227, 233);
+  background-color: black;
 }
+
+canvas {
+  border: 2px solid black;
+  display: block;
+  margin: 0 auto;
+  background-color: #85F9FF;
+}
+
 
 @keyframes bounce {
   0%, 100% {
@@ -17,6 +25,7 @@ canvas {
 .repeat-bounce {
   width: 100px;
   height: 100px;
+ 
   background-color: #3498db;
   animation: bounce 2s ease-in-out infinite;
 }
