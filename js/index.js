@@ -495,7 +495,7 @@ function startMenu() {
   ];
 
   const text2 =
-    "Controlos: Usa as techas WASD para mover o lixo pelo labirinto";
+    "Controls: Use the arrows and WASD keys to lead the trash to the correct bin.";
   const targetX2 = 315;
   const startX2 = 400; // start off-canvas
   const targetY2 = 50;
@@ -526,7 +526,7 @@ function startMenu() {
       ctx.fillStyle = "red";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      let textfail = "WRONG BIN DUMBASS!!";
+      let textfail = "WRONG BIN MORON!!";
       let targetXfail = 325;
       let targetYfail = 50;
       ctx.fillStyle = "Black";
