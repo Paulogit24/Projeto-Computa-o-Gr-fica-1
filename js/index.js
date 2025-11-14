@@ -31,46 +31,44 @@ let maze1 = {
   trash: "/img/LixoAzul.webp",
 };
 let maze2 = {
-  maze: [
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
-    [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
-    [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
-    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
-    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
-    [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
-    [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-    [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
-    [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
-    [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],
-  ],
-  pos: [0, 0], // starting position
-  objctive: 4,
+  maze :[
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
+  [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
+  [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
+  [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+  [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
+  [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],],
+  pos : [0,0], // starting position
+  objctive : 4,
   trash: "/img/LixoAmarelo.jpg",
 };
 
-let maze3 = {
-  maze: [
-    [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
-    [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
-    [1, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-    [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
-    [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-    [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
-    [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
-    [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0],
-  ],
-  pos: [0, 0], // starting position;
-  objctive: 5,
+let maze3 ={ 
+  maze :[
+  [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
+  [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
+  [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
+  [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
+  pos : [0,0], // starting position;
+  objctive : 5,
   trash: "/img/LixoVerde.jpg",
-};
+}
 
 function resetlvl(level) {
   if (level === 1) {
@@ -96,110 +94,109 @@ function resetlvl(level) {
     };
   } else if (level === 2) {
     maze2 = {
-      maze: [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
-        [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
-        [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
-        [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
-        [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
-        [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
-        [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
-        [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-        [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
-        [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
-        [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],
-      ],
-      pos: [0, 0], // starting position
-      objctive: 4,
-      trash: "/img/LixoAmarelo.jpg",
-    };
-  } else if (level === 3) {
-    maze3 = {
-      maze: [
-        [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
-        [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
-        [1, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-        [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
-        [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
-        [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
-        [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0],
-      ],
-      pos: [0, 0], // starting position;
-      objctive: 5,
-      trash: "/img/LixoVerde.jpg",
-    };
-  } else {
-    maze1 = {
-      maze: [
-        [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
-        [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1],
-        [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
-        [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
-        [1, 0, 1, 1, 1, 5, 0, 1, 0, 1, 1, 0, 0],
-        [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1],
-        [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
-        [0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
-        [4, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1],
-      ],
-      pos: [0, 0], // starting position
-      objctive: 3,
-      trash: "/img/LixoAzul.webp",
-    };
+  maze :[
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
+    [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
+    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
+    [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+    [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
+    [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+    [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+    [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
+    [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],],
+  pos : [0,0], // starting position
+  objctive : 4,
+  trash: "/img/LixoAmarelo.jpg",
+};}
 
-    maze2 = {
-      maze: [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
-        [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
-        [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
-        [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
-        [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
-        [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
-        [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
-        [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-        [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
-        [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
-        [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],
-      ],
-      pos: [0, 0], // starting position
-      objctive: 4,
-      trash: "/img/LixoAmarelo.jpg",
-    };
+  else if (level === 3){
+    maze3 ={ 
+  maze :[
+  [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
+  [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
+  [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
+  [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
+  pos : [0,0], // starting position;
+  objctive: 5,
+  trash: "/img/LixoVerde.jpg",
+}
+}
 
-    maze3 = {
-      maze: [
-        [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
-        [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
-        [1, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-        [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
-        [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
-        [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
-        [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0],
-      ],
-      pos: [0, 0], // starting position;
-      objctive: 5,
-      trash: "/img/LixoVerde.jpg",
-    };
+else{
+
+     maze1 =  {
+  maze : [
+    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1],
+    [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+    [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+    [1, 0, 1, 1, 1, 5, 0, 1, 0, 1, 1, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1],
+    [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+    [0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
+    [4, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 1], ],
+  pos : [0,0], // starting position
+  objctive: 3,
+  trash: "/img/LixoAzul.webp",
   }
+
+maze2 = {
+  maze :[
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0],
+  [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0],
+  [1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0],
+  [1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0],
+  [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 1],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0],
+  [4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 5],],
+pos : [0,0], // starting position
+objctive : 4,
+trash: "/img/LixoAmarelo.jpg",
+}
+
+  maze3 ={ 
+  maze :[
+  [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0],
+  [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 0],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
+  [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 1, 0, 0, 4, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
+  [0, 1, 1, 3, 0, 1, 1, 1, 0, 0, 0, 0, 0]],
+  pos : [0,0], // starting position;
+  objctive: 5,
+  trash: "/img/LixoVerde.jpg",
+}
+}
 }
 
 function createButton(button) {
@@ -229,222 +226,214 @@ function createButton(button) {
   ctx.stroke();
 }
 function clearcanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#85F9FF";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 function drawMaze1() {
   clearcanvas();
   maze1.maze[maze1.pos[0]][maze1.pos[1]] = 2; // mark starting position
-  // Cell size
-  const cellSize = canvas.height / maze1.maze.length;
-  img.src = "/img/blue.png";
-  img.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img, cellSize, cellSize, cellSize, cellSize);
-  };
-  const img2 = new Image();
-  img2.src = "/img/yellow.jpg";
-  img2.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img2, cellSize, cellSize, cellSize, cellSize);
-  };
-  const img3 = new Image();
-  img3.src = "/img/green.png";
-  img3.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img3, cellSize, cellSize, cellSize, cellSize);
-  };
-  const trash = new Image();
-  trash.src = maze1.trash;
-  trash.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(trash, cellSize, cellSize, cellSize, cellSize);
-  };
-  for (let row = 0; row < maze1.maze.length; row++) {
-    for (let col = 0; col < maze1.maze[row].length; col++) {
-      if (maze1.maze[row][col] === 0) {
-        ctx.fillStyle = "#098f07ff"; //mark1
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#098f07ff"; //mark1
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze1.maze[row][col] === 1) {
-        ctx.fillStyle = "#3498db"; //mark2
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#3498db"; //mark2
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze1.maze[row][col] === 2) {
-        ctx.fillStyle = "#3498db";
-        ctx.drawImage(
-          trash,
-          col * cellSize,
-          row * cellSize,
-          cellSize,
-          cellSize
-        );
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze1.maze[row][col] === 3) {
-        ctx.fillStyle = "blue";
-        ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze1.maze[row][col] === 4) {
-        ctx.fillStyle = "yellow";
-        ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze1.maze[row][col] === 5) {
-        ctx.fillStyle = "green";
-        ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+    // Cell size
+      const cellSize = canvas.height / maze1.maze.length;
+      img.src = "/img/blue.png";
+      img.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img2 = new Image();
+      img2.src = "/img/yellow.jpg";
+      img2.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img3 = new Image();
+      img3.src = "/img/green.png";
+      img3.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const trash = new Image();
+      trash.src = maze1.trash;
+      trash.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(trash, cellSize,  cellSize, cellSize, cellSize);
+      };
+    for (let row = 0; row < maze1.maze.length; row++) {
+      for (let col = 0; col < maze1.maze[row].length; col++) {
+        if (maze1.maze[row][col] === 0) {
+          ctx.fillStyle = "#098f07ff"; //mark1
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#098f07ff"; //mark1
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 1) {
+          ctx.fillStyle = "#3498db";  //mark2
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#3498db";  //mark2
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 2) {
+          ctx.fillStyle = "#3498db";
+          ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 3) {
+          ctx.fillStyle = "blue";
+          ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 4) {
+          ctx.fillStyle = "yellow";
+          ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze1.maze[row][col] === 5) {
+          ctx.fillStyle = "green";
+          ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
+
       }
     }
+    ;
+    
   }
-}
 
 function drawMaze2() {
   clearcanvas();
   maze2.maze[maze2.pos[0]][maze2.pos[1]] = 2; // mark starting position
-  // Cell size
-  const cellSize = canvas.height / maze2.maze.length;
-  img.src = "/img/blue.png";
-  img.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img, cellSize, cellSize, cellSize, cellSize);
-  };
-  const img2 = new Image();
-  img2.src = "/img/yellow.jpg";
-  img2.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img2, cellSize, cellSize, cellSize, cellSize);
-  };
-  const img3 = new Image();
-  img3.src = "/img/green.png";
-  img3.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img3, cellSize, cellSize, cellSize, cellSize);
-  };
-  const trash = new Image();
-  trash.src = maze2.trash;
-  trash.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(trash, cellSize, cellSize, cellSize, cellSize);
-  };
+    // Cell size
+      const cellSize = canvas.height / maze2.maze.length;
+      img.src = "/img/blue.png";
+      img.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img2 = new Image();
+      img2.src = "/img/yellow.jpg";
+      img2.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img3 = new Image();
+      img3.src = "/img/green.png";
+      img3.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
+      };
+       const trash = new Image();
+      trash.src = maze2.trash;
+      trash.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(trash, cellSize,  cellSize, cellSize, cellSize);
+      };
+      
+    for (let row = 0; row < maze2.maze.length; row++) {
+      for (let col = 0; col < maze2.maze[row].length; col++) {
+        if (maze2.maze[row][col] === 0) {
+          ctx.fillStyle = "#098f07ff"; //mark1
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#098f07ff"; //mark1
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 1) {
+          ctx.fillStyle = "#3498db";  //mark2
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#3498db";  //mark2
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 2) {
+          ctx.fillStyle = "#3498db";
+          ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 3) {
+          ctx.fillStyle = "blue";
+          ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 4) {
+          ctx.fillStyle = "yellow";
+          ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze2.maze[row][col] === 5) {
+          ctx.fillStyle = "green";
+          ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
 
-  for (let row = 0; row < maze2.maze.length; row++) {
-    for (let col = 0; col < maze2.maze[row].length; col++) {
-      if (maze2.maze[row][col] === 0) {
-        ctx.fillStyle = "#098f07ff"; //mark1
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#098f07ff"; //mark1
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze2.maze[row][col] === 1) {
-        ctx.fillStyle = "#3498db"; //mark2
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#3498db"; //mark2
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze2.maze[row][col] === 2) {
-        ctx.fillStyle = "#3498db";
-        ctx.drawImage(
-          trash,
-          col * cellSize,
-          row * cellSize,
-          cellSize,
-          cellSize
-        );
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze2.maze[row][col] === 3) {
-        ctx.fillStyle = "blue";
-        ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze2.maze[row][col] === 4) {
-        ctx.fillStyle = "yellow";
-        ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze2.maze[row][col] === 5) {
-        ctx.fillStyle = "green";
-        ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
       }
     }
+    ;
+    
   }
-}
 
 function drawMaze3() {
   clearcanvas();
   maze3.maze[maze3.pos[0]][maze3.pos[1]] = 2; // mark starting position
-  // Cell size
-  const cellSize = canvas.height / maze3.maze.length;
-  img.src = "/img/blue.png";
-  img.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img, cellSize, cellSize, cellSize, cellSize);
-  };
-  const img2 = new Image();
-  img2.src = "/img/yellow.jpg";
-  img2.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img2, cellSize, cellSize, cellSize, cellSize);
-  };
-  const img3 = new Image();
-  img3.src = "/img/green.png";
-  img3.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img3, cellSize, cellSize, cellSize, cellSize);
-  };
-  const trash = new Image();
-  trash.src = maze3.trash;
-  trash.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(trash, cellSize, cellSize, cellSize, cellSize);
-  };
-  for (let row = 0; row < maze3.maze.length; row++) {
-    for (let col = 0; col < maze3.maze[row].length; col++) {
-      if (maze3.maze[row][col] === 0) {
-        ctx.fillStyle = "#098f07ff"; //mark1
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#098f07ff"; //mark1
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 1) {
-        ctx.fillStyle = "#3498db"; //mark2
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#3498db"; //mark2
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 2) {
-        ctx.fillStyle = "#3498db";
-        ctx.drawImage(
-          trash,
-          col * cellSize,
-          row * cellSize,
-          cellSize,
-          cellSize
-        );
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 3) {
-        ctx.fillStyle = "blue";
-        ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 4) {
-        ctx.fillStyle = "yellow";
-        ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 5) {
-        ctx.fillStyle = "green";
-        ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#ffffffff";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+    // Cell size
+      const cellSize = canvas.height / maze3.maze.length;
+      img.src = "/img/blue.png";
+      img.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img2 = new Image();
+      img2.src = "/img/yellow.jpg";
+      img2.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img3 = new Image();
+      img3.src = "/img/green.png";
+      img3.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
+      };
+       const trash = new Image();
+      trash.src = maze3.trash;
+      trash.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(trash, cellSize,  cellSize, cellSize, cellSize);
+      };
+    for (let row = 0; row < maze3.maze.length; row++) {
+      for (let col = 0; col < maze3.maze[row].length; col++) {
+        if (maze3.maze[row][col] === 0) {
+          ctx.fillStyle = "#098f07ff"; //mark1
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#098f07ff"; //mark1
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 1) {
+          ctx.fillStyle = "#3498db";  //mark2
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#3498db";  //mark2
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 2) {
+          ctx.fillStyle = "#3498db";
+          ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 3) {
+          ctx.fillStyle = "blue";
+          ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 4) {
+          ctx.fillStyle = "yellow";
+          ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 5) {
+          ctx.fillStyle = "green";
+          ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#ffffffff";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
+
       }
     }
+    ;
+    
   }
-}
-function victory() {
+  function victory() {
   clearcanvas();
   const text = "PARABÉNS!";
   const targetX = 325;
@@ -475,6 +464,7 @@ function victory() {
 }
 // botão de start
 function startMenu() {
+  clearcanvas();
   const startButton = {
     x: 225,
     y: 300,
