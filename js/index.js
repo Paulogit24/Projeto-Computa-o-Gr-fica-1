@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 const img = new Image();
 const thinkImg = new Image();
 const partyImg = new Image();
+const party2Img = new Image();
 
 const ResetBtn = document.getElementById("Reset");
 const MenuBtn = document.getElementById("MenuBtn");
@@ -519,8 +520,8 @@ function failScreen() {
 
   partyImg.src = "/img/partypopper1.png";
   ctx.drawImage(partyImg, 430, 200, 200, 200);
-  partyImg.src = "/img/partypopper2.png";
-  ctx.drawImage(partyImg, 20, 200, 200, 200);
+  party2Img.src = "/img/partypopper2.png";
+  ctx.drawImage(party2Img, 20, 200, 200, 200);
 }
 
 function restart() {
