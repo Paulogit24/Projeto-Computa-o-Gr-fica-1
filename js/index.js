@@ -1,7 +1,7 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 const img = new Image();
-
+const thinkImg = new Image();
 const ResetBtn = document.getElementById("Reset");
 const MenuBtn = document.getElementById("MenuBtn");
 const Btn1 = document.getElementById("maze1");
@@ -466,6 +466,26 @@ function drawMaze3() {
     ;
     
   }
+function failScreen() {
+      ctx.fillStyle = "red";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+       
+  thinkImg.src = "/img/think.webp";
+      ctx.drawImage(thinkImg, 250, 100, 150, 150);
+
+      let textfail = "WRONG BIN, TRY AGAIN!!";
+      let targetXfail = 325;
+      let targetYfail = 50;
+      ctx.fillStyle = "Black";
+      ctx.textAlign = "center";
+      ctx.font = "30px Arial";
+      ctx.fillText(textfail, targetXfail, targetYfail, 300)
+
+      createButton(againButton);
+
+}
+
   function victory() {
   clearcanvas();
   const text = "CONGRATULATIONS!!!";
@@ -544,30 +564,7 @@ function startMenu() {
     const elapsed = timestamp - startTime;
     // FAIL SCREEN
     if (fail === true) {
-      console.log("falhou");
-      ctx.fillStyle = "red";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      let textfail = "WRONG BIN MORON!!";
-      let targetXfail = 325;
-      let targetYfail = 50;
-      ctx.fillStyle = "Black";
-      ctx.textAlign = "center";
-      ctx.font = "30px Arial";
-      ctx.fillText(textfail, targetXfail, targetYfail, 300)
-
-      const againButton = {
-        x: 225,
-        y: 300,
-        width: 175,
-        height: 100,
-        text: "try again",
-        textColor: "#ffffff",
-        color: "#33ff00ff",
-        border: "#000000ff",
-        borderRadius: 20,
-      };
-      createButton(againButton);
+    failScreen();
     }
     else {
       if (lvl === 0) {
