@@ -104,3 +104,8 @@ canvas {
   background-color: #cbf414; /* Darker green on hover */
   font-weight: bold;
 }
+
+.startButton:hover {
+  background-color: #cbf414; /* Darker orange on hover */
+  font-weight: bold;
+}
