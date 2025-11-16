@@ -7,6 +7,29 @@ const MenuBtn = document.getElementById("MenuBtn");
 const Btn1 = document.getElementById("maze1");
 const Btn2 = document.getElementById("maze2");
 const Btn3 = document.getElementById("maze3");
+const againButton = {
+  x: 237.5,
+  y: 300,
+  width: 175,
+  height: 100,
+  text: "try again",
+  textColor: "#ffffff",
+  color: "#33ff00ff",
+  border: "#000000ff",
+  borderRadius: 20,
+};
+
+const startButton = {
+  x: 237.5,
+  y: 300,
+  width: 175,
+  height: 100,
+  text: "Start",
+  textColor: "#ffffff",
+  color: "#44ff00ff",
+  border: "#054d04ff",
+  borderRadius: 20,
+};
 
 var fail = false;
 var lvl = 0;
@@ -379,74 +402,71 @@ function drawMaze2() {
 function drawMaze3() {
   clearcanvas();
   maze3.maze[maze3.pos[0]][maze3.pos[1]] = 2; // mark starting position
-  // Cell size
-  const cellSize = canvas.height / maze3.maze.length;
-  img.src = "/img/blue.png";
-  img.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img, cellSize, cellSize, cellSize, cellSize);
-  };
-  const img2 = new Image();
-  img2.src = "/img/yellow.jpg";
-  img2.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img2, cellSize, cellSize, cellSize, cellSize);
-  };
-  const img3 = new Image();
-  img3.src = "/img/green.avif";
-  img3.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(img3, cellSize, cellSize, cellSize, cellSize);
-  };
-  const trash = new Image();
-  trash.src = maze3.trash;
-  trash.onload = function () {
-    // x and y are maze grid coordinates multiplied by cell size
-    ctx.drawImage(trash, cellSize, cellSize, cellSize, cellSize);
-  };
-  for (let row = 0; row < maze3.maze.length; row++) {
-    for (let col = 0; col < maze3.maze[row].length; col++) {
-      if (maze3.maze[row][col] === 0) {
-        ctx.fillStyle = "#098f07ff"; //mark1
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#098f07ff"; //mark1
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 1) {
-        ctx.fillStyle = "#85F9FF"; //mark2
-        ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#85F9FF"; //mark2
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 2) {
-        ctx.fillStyle = "#85F9FF";
-        ctx.drawImage(
-          trash,
-          col * cellSize,
-          row * cellSize,
-          cellSize,
-          cellSize
-        );
-        ctx.strokeStyle = "#85F9FF";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 3) {
-        ctx.fillStyle = "#85F9FF";
-        ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#85F9FF";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 4) {
-        ctx.fillStyle = "#85F9FF";
-        ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#85F9FF";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
-      } else if (maze3.maze[row][col] === 5) {
-        ctx.fillStyle = "#85F9FF";
-        ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
-        ctx.strokeStyle = "#85F9FF";
-        ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+    // Cell size
+      const cellSize = canvas.height / maze3.maze.length;
+      img.src = "/img/blue.png";
+      img.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img2 = new Image();
+      img2.src = "/img/yellow.jpg";
+      img2.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img2, cellSize,  cellSize, cellSize, cellSize);
+      };
+      const img3 = new Image();
+      img3.src = "/img/green.avif";
+      img3.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(img3, cellSize,  cellSize, cellSize, cellSize);
+      };
+       const trash = new Image();
+      trash.src = maze3.trash;
+      trash.onload = function () {
+        // x and y are maze grid coordinates multiplied by cell size
+        ctx.drawImage(trash, cellSize,  cellSize, cellSize, cellSize);
+      };
+    for (let row = 0; row < maze3.maze.length; row++) {
+      for (let col = 0; col < maze3.maze[row].length; col++) {
+        if (maze3.maze[row][col] === 0) {
+          ctx.fillStyle = "#098f07ff"; //mark1
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#098f07ff"; //mark1
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 1) {
+          ctx.fillStyle = "#85F9FF";  //mark2
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#85F9FF";  //mark2
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 2) {
+          ctx.fillStyle = "#85F9FF";
+          ctx.drawImage(trash, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#85F9FF";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 3) {
+          ctx.fillStyle = "#85F9FF";
+          ctx.drawImage(img, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#85F9FF";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 4) {
+          ctx.fillStyle = "#85F9FF";
+          ctx.drawImage(img2, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#85F9FF";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        } else if (maze3.maze[row][col] === 5) {
+          ctx.fillStyle = "#85F9FF";
+          ctx.drawImage(img3, col * cellSize, row * cellSize, cellSize, cellSize);
+          ctx.strokeStyle = "#85F9FF";
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
+
       }
     }
+    ;
+    
   }
-}
-function victory() {
+  function victory() {
   clearcanvas();
   const text = "CONGRATULATIONS!!!";
   const targetX = 325;
@@ -483,17 +503,7 @@ function restart() {
 // botão de start
 function startMenu() {
   clearcanvas();
-  const startButton = {
-    x: 225,
-    y: 300,
-    width: 175,
-    height: 100,
-    text: "Start",
-    textColor: "#ffffff",
-    color: "#44ff00ff",
-    border: "#054d04ff",
-    borderRadius: 20,
-  };
+
 
   const text = "Labirinto de Lixo";
   const targetX = 315;
@@ -544,7 +554,7 @@ function startMenu() {
       ctx.fillStyle = "Black";
       ctx.textAlign = "center";
       ctx.font = "30px Arial";
-      ctx.fillText(textfail, targetXfail, targetYfail, 300);
+      ctx.fillText(textfail, targetXfail, targetYfail, 300)
 
       const againButton = {
         x: 225,
@@ -558,7 +568,8 @@ function startMenu() {
         borderRadius: 20,
       };
       createButton(againButton);
-    } else {
+    }
+    else {
       if (lvl === 0) {
         // keep text fixed in the original position
         const x = targetX;
