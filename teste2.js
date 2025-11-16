@@ -7,33 +7,33 @@ const MenuBtn = document.getElementById("MenuBtn");
 const Btn1 = document.getElementById("maze1");
 const Btn2 = document.getElementById("maze2");
 const Btn3 = document.getElementById("maze3");
-const againButton = {
-  x: 237.5,
-  y: 300,
-  width: 175,
-  height: 100,
-  text: "try again",
-  textColor: "#ffffff",
-  color: "#33ff00ff",
-  border: "#000000ff",
-  borderRadius: 20,
-};
-
-const startButton = {
-  x: 237.5,
-  y: 300,
-  width: 175,
-  height: 100,
-  text: "Start",
-  textColor: "#ffffff",
-  color: "#44ff00ff",
-  border: "#054d04ff",
-  borderRadius: 20,
-};
 
 var fail = false;
 var lvl = 0;
 var Maxlvl = 1;
+
+const againButton = {
+        x: 237.5,
+        y: 300,
+        width: 175,
+        height: 100,
+        text: "try again",
+        textColor: "#ffffff",
+        color: "#33ff00ff",
+        border: "#000000ff",
+        borderRadius: 20,
+      };
+const startButton = {
+    x: 237.5,
+    y: 300,
+    width: 175,
+    height: 100,
+    text: "Start",
+    textColor: "#ffffff",
+    color: "#44ff00ff",
+    border: "#054d04ff",
+    borderRadius: 20,
+  };
 let maze1 = {
   maze: [
     [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -477,7 +477,7 @@ function drawMaze1() {
       ThinkImg.src = "/img/think.webp";
       ctx.drawImage(ThinkImg, 275, 150, 100, 100);
 
-
+      
       createButton(againButton);
   }
 
@@ -518,7 +518,7 @@ function restart() {
 // botão de start
 function startMenu() {
   clearcanvas();
-
+  
 
   const text = "Labirinto de Lixo";
   const targetX = 315;
@@ -643,6 +643,8 @@ function startMenu() {
 }
     requestAnimationFrame(animate);
   }
+
+  // start the animation loop
   requestAnimationFrame(animate);
   //animate();
 
